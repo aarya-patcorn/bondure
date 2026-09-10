@@ -18,13 +18,6 @@ export const CATEGORIES = [
     description: "Thin-bed mortars for AAC block masonry.",
   },
   {
-    id: "grout",
-    label: "Grout",
-    short: "Grout",
-    tool: "grout",
-    description: "Joint filling for wet areas, facades, and floors.",
-  },
-  {
     id: "floor-screed",
     label: "Floor screed",
     short: "Screed",
@@ -61,13 +54,6 @@ export const TOOLS = [
     title: "AAC joining estimator",
     copy: "Bag count for thin-bed AAC block walls.",
     illustration: "/tools/tool-aac-joining.png",
-  },
-  {
-    id: "grout",
-    category: "grout",
-    title: "Grout coverage",
-    copy: "Joint volume from tile size, joint width, and area.",
-    illustration: "/tools/tool-grout.png",
   },
   {
     id: "screed",
@@ -184,9 +170,9 @@ export const PRODUCTS = [
     tileTypes: ["ceramic", "vitrified"],
   },
   {
-    id: "jointflex",
+    id: "flexjoint",
     category: "grout",
-    name: "Joint Flex Grout",
+    name: "FlexJoint Grout",
     bagKg: 5,
     densityKgPerL: 1.55,
     image: null,
@@ -212,20 +198,9 @@ export const PRODUCTS = [
     bagKg: 40,
     refCoatMm: 12,
     coverageSqMAtRef: 2.2,
-    image: null,
+    image: "/media/walltarkplaster.png",
     substrates: ["brick", "concrete", "aac"],
     applications: ["interior"],
-  },
-  {
-    id: "exterender",
-    category: "plaster",
-    name: "Bondure ExteRender Plaster",
-    bagKg: 40,
-    refCoatMm: 15,
-    coverageSqMAtRef: 1.8,
-    image: null,
-    substrates: ["brick", "concrete"],
-    applications: ["exterior"],
   },
   {
     id: "tileshine",
@@ -239,22 +214,9 @@ export const PRODUCTS = [
     applications: ["maintenance"],
     residue: ["cement", "general"],
   },
-  {
-    id: "stonecare",
-    category: "tile-cleaner",
-    name: "Bondure StoneCare Cleaner",
-    packLitres: 5,
-    mlPerSqM: 12,
-    dilutionRatio: "1:8",
-    image: null,
-    substrates: ["stone", "marble"],
-    applications: ["maintenance"],
-    residue: ["efflorescence", "general"],
-  },
 ];
 
 export const WASTE_FACTOR = 1.1;
-export const GROUT_WASTE_FACTOR = 1.12;
 
 export function productsByCategory(categoryId) {
   return PRODUCTS.filter((product) => product.category === categoryId);
@@ -299,36 +261,6 @@ export function aacBags({ productId, areaSqFt, jointMm, waste = WASTE_FACTOR }) 
     product,
     coverageSqFtPerBag: Math.round(coverageSqFtPerBag * 10) / 10,
     bags: Math.ceil((areaSqFt * waste) / coverageSqFtPerBag),
-    areaSqFt,
-    jointMm,
-    wastePercent: Math.round((waste - 1) * 100),
-  };
-}
-
-export function groutBags({
-  productId,
-  areaSqFt,
-  tileLMm,
-  tileWMm,
-  jointMm,
-  depthMm,
-  waste = GROUT_WASTE_FACTOR,
-}) {
-  const product = getProduct(productId);
-  if (!product || product.category !== "grout") return null;
-  const areaSqM = areaSqFt * 0.092903;
-  const tileL = tileLMm / 1000;
-  const tileW = tileWMm / 1000;
-  const joint = jointMm / 1000;
-  const depth = (depthMm || Math.min(tileLMm, tileWMm) * 0.5) / 1000;
-  const jointVolPerSqM = ((tileL + tileW) * joint * depth) / ((tileL + joint) * (tileW + joint));
-  const kg = jointVolPerSqM * areaSqM * (product.densityKgPerL || 1.6) * 1000 * waste;
-  const bags = Math.ceil(kg / product.bagKg);
-  return {
-    product,
-    kg: Math.round(kg * 10) / 10,
-    bags,
-    coverageSqFtPerBag: bags ? Math.round((areaSqFt / bags) * 10) / 10 : 0,
     areaSqFt,
     jointMm,
     wastePercent: Math.round((waste - 1) * 100),
@@ -438,26 +370,6 @@ export const RECOMMENDER_BRANCHES = {
       choices: [{ value: "aac", label: "AAC blocks" }],
     },
   ],
-  grout: [
-    {
-      key: "application",
-      question: "Where is the grout needed?",
-      choices: [
-        { value: "wet-area", label: "Wet areas" },
-        { value: "floor", label: "Dry floors" },
-        { value: "facade", label: "Facade / exterior" },
-      ],
-    },
-    {
-      key: "tileType",
-      question: "Tile type?",
-      choices: [
-        { value: "ceramic", label: "Ceramic" },
-        { value: "vitrified", label: "Vitrified" },
-        { value: "stone", label: "Natural stone" },
-      ],
-    },
-  ],
   "floor-screed": [
     {
       key: "application",
@@ -531,7 +443,6 @@ export const DISCLAIMER =
 const DE_CATEGORY_COPY = {
   "tile-adhesive": ["Fliesenkleber", "Kleber", "Boden- und Wandfliesen aus Keramik, Feinsteinzeug und Naturstein sicher verlegen."],
   "aac-joining": ["Porenbeton-Fugenlösungen", "Porenbeton-Fugenmörtel", "Dünnbettmörtel für Mauerwerk aus Porenbetonsteinen."],
-  grout: ["Fugenmörtel", "Fugenmörtel", "Fugenfüllung für Nassbereiche, Fassaden und Böden."],
   "floor-screed": ["Bodenestrich", "Estrich", "Unterlagen und Ausgleichsschichten vor der Fliesenverlegung."],
   plaster: ["Putz", "Putz", "Innen- und Außenputz für Wände."],
   "tile-cleaner": ["Fliesenreiniger", "Reiniger", "Konzentrate für die Reinigung nach der Verlegung und die laufende Pflege."],
@@ -540,7 +451,6 @@ const DE_CATEGORY_COPY = {
 const DE_TOOL_COPY = {
   adhesive: ["Fliesenkleber-Verbrauch", "Sackanzahl anhand von Bodenfläche und Kleberbettdicke schätzen."],
   aac: ["Porenbeton-Fugenmörtel-Rechner", "Sackanzahl für Dünnbettmörtel bei Wänden aus Porenbetonsteinen."],
-  grout: ["Fugenmörtel-Verbrauch", "Fugenvolumen anhand von Fliesengröße, Fugenbreite und Fläche berechnen."],
   screed: ["Bodenestrich-Ergiebigkeit", "Sackanzahl anhand von Bodenfläche und Estrichdicke berechnen."],
   plaster: ["Putz-Verbrauch", "Sackanzahl anhand von Wandfläche und Schichtdicke berechnen."],
   cleaner: ["Fliesenreiniger-Dosierung", "Konzentratmenge in Litern anhand von Fläche und Verdünnung berechnen."],
@@ -556,10 +466,6 @@ const DE_RECOMMENDER = {
   "aac-joining": [
     ["Art der Anwendung?", ["Wand / Trennwand aus Porenbetonsteinen"]],
     ["Steinsystem?", ["Porenbetonsteine"]],
-  ],
-  grout: [
-    ["Wo wird der Fugenmörtel benötigt?", ["Nassbereiche", "Trockene Böden", "Fassade / Außenbereich"]],
-    ["Fliesentyp?", ["Keramik", "Feinsteinzeug", "Naturstein"]],
   ],
   "floor-screed": [
     ["Projektumgebung?", ["Innenbereich", "Außenbereich / überdachter Außenbereich"]],

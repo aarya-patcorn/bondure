@@ -135,11 +135,6 @@ const stickyTestimonialsDe = [
     alt: 'Arjun Mehta, Bauingenieur',
   },
   {
-    role: 'Planerin, Hamburg',
-    quote: 'Ich schätze besonders, wie klar jedes System dokumentiert ist. Untergrundvorbereitung, Verbrauchsmengen und Aushärtung lassen sich allesamt eindeutig auf die Baustelle übertragen.',
-    alt: 'Lena Schmidt in einer professionellen Interviewsituation',
-  },
-  {
     role: 'Projektleiterin, Bengaluru',
     quote: 'Besonders aufgefallen ist uns, wie berechenbar die Mischungen auf der Baustelle sind. Das Team erhält Charge für Charge dieselbe Verarbeitbarkeit, wodurch unser Fertigstellungsplan eingehalten wird.',
     alt: 'Priya Desai, Projektleiterin',
