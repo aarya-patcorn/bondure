@@ -39,12 +39,13 @@ const TILE_ADHESIVE_IMAGES = [
 const PRODUCT_IMAGES_BY_SLUG = Object.fromEntries(
   PRODUCTS.map((product) => [product.slug, product.image])
 );
-const TOOL_MENU_ORDER = ["adhesive", "screed", "aac", "cleaner", "plaster"];
+const TOOL_MENU_ORDER = ["adhesive", "aac", "plaster", "screed", "grout", "cleaner"];
 const TOOL_MENU_LABELS = {
   adhesive: ["Tile Adhesive Calculator", "Fliesenkleber-Rechner"],
   screed: ["Floor Screed Calculator", "Estrich-Rechner"],
   aac: ["AAC Mortar Calculator", "Porenbetonmörtel-Rechner"],
   cleaner: ["Tile Cleaner Calculator", "Fliesenreiniger-Rechner"],
+  grout: ["Tile Grout Calculator", "Fliesenmörtel ist"],
   plaster: ["Wall Plaster Calculator", "Wandputz-Rechner"],
 };
 
@@ -77,7 +78,7 @@ const CATEGORY_LABELS_DE = {
   "tile-adhesive": "Fliesenkleber",
   "aac-joining": "Porenbeton-Fugenmörtel",
   "floor-screed": "Estrich",
-  plaster: "Putz",
+  "plaster": "Putz",
 };
 
 const TopBar = () => {
@@ -222,31 +223,6 @@ const TopBar = () => {
       ref={headerRef}
     >
       <div className="top-bar">
-        <form className="top-bar-search" onSubmit={handleSearchSubmit} role="search">
-          <svg className="top-bar-search__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <path
-              d="M20 20L16.5 16.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-          <span className="top-bar-search__field">
-            <input
-              ref={searchInputRef}
-              className="top-bar-search__input"
-              type="search"
-              name="q"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={t("search")}
-              aria-label={t("search")}
-            />
-          </span>
-        </form>
-
         <a
           className="top-bar-logo"
           href="/"
@@ -271,6 +247,10 @@ const TopBar = () => {
         }}
       >
         <div className="top-bar-nav">
+          
+          <div className="top-bar-nav__actions">
+            <LanguageToggle />
+          </div>
           <nav className="top-bar-nav__links" aria-label={chromeText.primary}>
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -297,10 +277,6 @@ const TopBar = () => {
               );
             })}
           </nav>
-
-          <div className="top-bar-nav__actions">
-            <LanguageToggle />
-          </div>
         </div>
 
         {openMenu && (

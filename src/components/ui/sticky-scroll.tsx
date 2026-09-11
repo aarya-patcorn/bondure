@@ -239,6 +239,11 @@ const StickyScroll = forwardRef<HTMLElement>((props, ref) => {
       ref={ref}
       aria-label={locale === 'de' ? 'Kundenstimmen' : 'Client testimonials'}
     >
+      <div className="sticky-scroll__intro">
+        <h2 className="sticky-scroll__heading font-[family-name:var(--font-crimson-pro)] text-[1.75rem] font-semibold leading-[1.15] tracking-[-0.01em] sm:text-[2rem]">
+          "<strong> Voice </strong> from the Site"
+        </h2>
+      </div>
       <section className="sticky-scroll__panel">
         <div className="grid grid-cols-12 gap-2">
           <div className="col-span-6 grid gap-2 md:col-span-4">

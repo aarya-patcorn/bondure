@@ -106,7 +106,7 @@ export const CATEGORY_SPECS = {
     primary: "22 - 24 ft²",
     primaryLabel: "Coverage per bag",
     primaryCopy:
-      "Per 40 kg bag at a 12 mm coat, subject to substrate texture and preparation.",
+      "Per 50 kg bag at a 12 mm coat, subject to substrate texture and preparation.",
     secondary: "30 min",
     secondaryLabel: "Working time",
     tertiary: "90 min",
@@ -149,15 +149,15 @@ export const CATEGORY_FEATURES = {
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/aac-block-jointing/block-joint-1.webp",
         alt: "Stacked AAC blocks on construction site",
       },
       {
-        src: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/aac-block-jointing/block-joint-2.webp",
         alt: "Masonry work with lightweight AAC blocks",
       },
       {
-        src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/aac-block-jointing/block-joint-3.webp",
         alt: "AAC block building under construction",
       },
     ],
@@ -180,15 +180,15 @@ export const CATEGORY_FEATURES = {
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/tile-adhesive/tile-adhesive-1.webp",
         alt: "Large-format floor tiles being installed",
       },
       {
-        src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/tile-adhesive/tile-adhesive-2.webp",
         alt: "Tiled bathroom interior",
       },
       {
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/tile-adhesive/tile-adhesive-3.webp",
         alt: "Modern tiled living space",
       },
     ],
@@ -211,15 +211,15 @@ export const CATEGORY_FEATURES = {
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/screed/screed-1.webp",
         alt: "Floor screeding on a construction site",
       },
       {
-        src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/screed/screed-2.webp",
         alt: "Interior floor preparation before finishes",
       },
       {
-        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/screed/screed-3.webp",
         alt: "Workers leveling a concrete floor slab",
       },
     ],
@@ -273,15 +273,15 @@ export const CATEGORY_FEATURES = {
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/tile-cleaner/tile-shine-1.webp",
         alt: "Clean tiled bathroom surfaces",
       },
       {
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/tile-cleaner/tile-shine-2.webp",
         alt: "Polished tile floor after cleaning",
       },
       {
-        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80",
+        src: "/product-details/tile-cleaner/tile-shine-3.webp",
         alt: "Tile installation finishing work",
       },
     ],
@@ -368,7 +368,7 @@ export const PRODUCTS = [
     meta: "Warranty 5 Year, 10 Year · IS 1661",
     category: "plaster",
     collectionCategory: "Plaster",
-    image: "/media/walltarkplaster.png",
+    image: "/products/wall-stark.webp",
     imageAlt: "Bondure Wall Stark Plaster bag",
     line: "plaster",
   },

@@ -14,7 +14,7 @@
   height: 100%;
   color: var(--base-300);
   border-radius: 2rem;
-  padding: 2.5rem 0 3rem;
+  padding: .5rem 0;
 }
 
 .footer .footer-meta .container.footer-socials {

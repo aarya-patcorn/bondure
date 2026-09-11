@@ -17,7 +17,7 @@ export const telescopeSpotlightMedia = [
   },
   {
     id: "on-site-quality-audit",
-    image: "/home-media/material-inspection.webp",
+    image: "/spotlight/technicalteamservices.webp",
     alt: {
       en: "Bondure specialist inspecting material quality on site",
       de: "Bondure-Spezialist prüft die Materialqualität vor Ort",
@@ -41,7 +41,7 @@ export const telescopeSpotlightMedia = [
   },
   {
     id: "tile-adhesive-bedding",
-    image: "/spotlight/tile-adhesive-application.png",
+    image: "/spotlight/tile-bedding.webp",
     alt: {
       en: "Tile adhesive being applied with a notched trowel",
       de: "Fliesenkleber wird mit einer Zahnkelle aufgetragen",
@@ -57,7 +57,7 @@ export const telescopeSpotlightMedia = [
   },
   {
     id: "large-format-tile-installation",
-    image: "/spotlight/tile-installation.webp",
+    image: "product-details/tile-adhesive/tile-adhesive-3.webp",
     alt: {
       en: "Large-format tile installation on site",
       de: "Verlegung großformatiger Fliesen vor Ort",

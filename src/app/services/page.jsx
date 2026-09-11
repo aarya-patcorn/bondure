@@ -3,7 +3,6 @@
 import "./services-page.css";
 
 import Copy from "@/components/Copy/Copy";
-import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import HowWeWork from "@/components/HowWeWork/HowWeWork";
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
@@ -65,6 +64,24 @@ const copy = {
     ],
   },
 };
+
+const serviceBlogPosts = [
+  {
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
+    title: "Application Training as Risk Management",
+    description: "Why Most Site Failures Aren't About the Product",
+  },
+  {
+    image: "blog/van_lab.jpeg",
+    title: "What a Mobile Testing Lab",
+    description: "Can Tell You Before You Ever Specify a Product",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    title: "Diagnosing a Recurring Tile Debonding Issue",
+    description: "An On-Site Quality Audit Walkthrough",
+  },
+];
 
 function PillarIllustration({ type }) {
   if (type === "recommendation") {
@@ -150,12 +167,29 @@ export default function ServicesPage() {
 
         <TelescopeSpotlight />
 
-        <CTAWindow
-          video="/home-media/AACBLOCKDEMO.mp4"
-          ctaLabel={content.cta}
-          ctaHref="https://www.youtube.com/watch?v=zPkCc4Fjcag"
-          showOverlay={false}
-        />
+        <section className="service-blog" aria-labelledby="service-blog-title">
+          <div className="service-blog__inner">
+            <div className="service-blog__heading">
+              <h2 id="service-blog-title">From the site.</h2>
+              <p>Practical guidance for stronger applications and fewer site surprises.</p>
+            </div>
+            <div className="service-blog__grid">
+              {serviceBlogPosts.map((post) => (
+                <article className="service-blog-card" key={post.title}>
+                  <div className="service-blog-card__image">
+                    <img src={post.image} alt="" loading="lazy" decoding="async" />
+                  </div>
+                  <div className="service-blog-card__body">
+                    <h3>{post.title}</h3>
+                    <p>{post.description}</p>
+                    <a href="/services#blog">Read more</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
       <ConditionalFooter />
     </>

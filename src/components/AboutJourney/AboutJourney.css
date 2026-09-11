@@ -3,7 +3,7 @@
   --history-line: var(--base-400);
   position: relative;
   overflow: hidden;
-  padding: 0 var(--history-gutter) clamp(7rem, 12vw, 13rem);
+  padding: 0 var(--history-gutter) clamp(3rem, 4vw, 8rem);
   color: var(--base-100);
   background: var(--base-500);
 }
@@ -72,12 +72,12 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: auto auto minmax(5rem, auto) auto;
   column-gap: clamp(5rem, 10vw, 12rem);
-  min-height: clamp(48rem, 72vw, 76rem);
-  padding-bottom: clamp(8rem, 14vw, 16rem);
+  min-height: clamp(34rem, 54vw, 58rem);
+  padding-bottom: clamp(4rem, 8vw, 9rem);
 }
 
 .history-entry:first-child {
-  min-height: clamp(40rem, 62vw, 68rem);
+  min-height: clamp(30rem, 48vw, 50rem);
 }
 
 .history-entry:first-child .history-entry__axis {
@@ -85,8 +85,8 @@
 }
 
 .history-entry:last-child {
-  min-height: 42rem;
-  padding-bottom: 4rem;
+  min-height: 34rem;
+  padding-bottom: 3rem;
 }
 
 .history-entry__axis {
@@ -295,8 +295,8 @@
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
   max-width: 112rem;
-  margin: clamp(5rem, 10vw, 10rem) auto 0;
-  padding-top: 1.25rem;
+  /* margin: clamp(5rem, 10vw, 10rem) auto 0; */
+  padding-top: 2.25rem;
   border-top: 1px solid var(--base-400);
 }
 

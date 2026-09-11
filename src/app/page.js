@@ -3,7 +3,7 @@ import { preload } from "react-dom";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import HomeGallery from "@/components/Home/HomeGallery";
 import HomeHero from "@/components/Home/HomeHero";
-import HomeStaticSections from "@/components/Home/HomeStaticSections";
+import HomeStats from "@/components/Home/HomeStats";
 import HomeStickyScroll from "@/components/Home/HomeStickyScroll";
 import HomeSolutions from "@/components/Home/HomeSolutions";
 import HomeSustainability from "@/components/Home/HomeSustainability";
@@ -20,7 +20,7 @@ export default function Home() {
     <main className="home-page">
       <HomeHero />
       <HomeGallery />
-      <HomeStaticSections />
+      <HomeStats />
       <HomeStickyScroll />
       <HomeSolutions />
       <HomeSustainability />

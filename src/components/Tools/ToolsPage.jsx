@@ -29,6 +29,29 @@ import "./Tools.css";
 
 const TOOLS_GLOW = "89, 22, 24";
 
+const toolsBlogPosts = [
+  {
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    title: "The Real Cost of Under-Ordering Tile Adhesive",
+    description: "A Specifier's Guide to Accurate Coverage Calculations",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    title: "Floor Screed Estimation",
+    description: "Getting Thickness and Coverage Right Before the Pour",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+    title: "Sustainability in Construction Chemicals",
+    description: "Measuring What Actually Matters",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
+    title: "Case study",
+    description: "How Accurate Material Estimation Prevented a Mid-Project Stoppage on a High-Rise Residential Tower",
+  },
+];
+
 function loadScript(src) {
   return new Promise((resolve, reject) => {
     const existing = document.querySelector(`script[src="${src}"]`);
@@ -220,7 +243,7 @@ const CALCULATORS = {
       }),
     format: (result) => ({
       metric: result.concentrateL,
-      unit: "L",
+      unit: "ml",
       label: "Concentrate required",
       rows: [
         { label: "Product", value: result.product.name },
@@ -331,7 +354,7 @@ function localizedCalculator(config, locale) {
 
 function productMeta(product, locale) {
   if (product.bagKg != null) return `${product.bagKg} kg ${locale === "de" ? "Sack" : "bag"}`;
-  if (product.packLitres != null) return `${product.packLitres} L ${locale === "de" ? "Gebinde" : "pack"}`;
+  if (product.packLitres != null) return `${product.packLitres} ml ${locale === "de" ? "Gebinde" : "pack"}`;
   return "";
 }
 
@@ -818,6 +841,31 @@ export default function ToolsPage() {
                     <span className="tools-card__cta">{localize(locale, "Open tool")} →</span>
                   </span>
                 </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {!activeTool && (
+        <section className="tools-blog" aria-labelledby="tools-blog-title">
+          <div className="tools-blog__inner">
+            <div className="tools-blog__heading">
+              <h2 id="tools-blog-title">From the field.</h2>
+              <p>Practical guidance for better planning, coverage, and material decisions.</p>
+            </div>
+            <div className="tools-blog__grid">
+              {toolsBlogPosts.map((post) => (
+                <article className="tools-blog-card" key={post.title}>
+                  <div className="tools-blog-card__image">
+                    <img src={post.image} alt="" loading="lazy" decoding="async" />
+                  </div>
+                  <div className="tools-blog-card__body">
+                    <h3>{post.title}</h3>
+                    <p>{post.description}</p>
+                    <a href="/tools#blog">Read more</a>
+                  </div>
+                </article>
               ))}
             </div>
           </div>

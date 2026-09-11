@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import HomeStaticSections from "@/components/Home/HomeStaticSections";
 import RDHero from "@/components/RDHero/RDHero";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
@@ -18,6 +18,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const RD_EVIDENCE_GLOW = "64, 19, 21";
 const RD_PEOPLE_GLOW = "89, 22, 24";
+
+const blogPosts = [
+  {
+    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=85",
+    title: "Inside 700,000+ Tests",
+    description: "What Rigorous Product Validation Actually Looks Like",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    title: "C2, TE, S1, S2:",
+    description: "A Specifier's Plain-English Guide to Adhesive Classification Standards",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+    title: "Sustainability in Construction Chemicals",
+    description: "Measuring What Actually Matters",
+  },
+];
 
 function initBentoGrid(grid, cardSelector, glowColor) {
   if (!grid) return null;
@@ -231,22 +249,29 @@ export default function RDPage() {
     <div ref={pageRef}>
       <RDHero {...content.hero} />
       <main className="rd-page" id="rd-content">
+        <HomeStaticSections />
         <section className="rd-network">
           <div className="container">
             <div className="rd-network-layout">
-              <div className="rd-network-copy">
-                <Copy delay={0.1}>
-                  <h2>{content.partnershipsHeading}</h2>
-                </Copy>
-              </div>
               <figure className="rd-partnerships-visual">
-              <img
-                src="/home-media/rd-research-partnerships.jpg"
+                <img
+                  src="/home-media/rd-iit.png"
+                  alt={content.partnershipsImageAlt}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="/home-media/rd-mpa.png"
                   alt={content.partnershipsImageAlt}
                   loading="lazy"
                   decoding="async"
                 />
               </figure>
+              <div className="rd-network-copy">
+                <Copy delay={0.1}>
+                  <h2>{content.partnershipsHeading}</h2>
+                </Copy>
+              </div>
             </div>
           </div>
         </section>
@@ -283,31 +308,54 @@ export default function RDPage() {
                   <h2 id="rd-development-title">{content.developmentHeading}</h2>
                   <p>{content.developmentDescription}</p>
                 </Copy>
+
+                <ol className="rd-development-stepper" aria-label={content.developmentStepperLabel}>
+                  {content.developmentSteps.map(([title, description], index) => (
+                    <li key={title} className="rd-development-stepper__item">
+                      <div className="rd-development-stepper__track" aria-hidden="true">
+                        <span className="rd-development-stepper__marker">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        {index < content.developmentSteps.length - 1 ? (
+                          <span className="rd-development-stepper__line" />
+                        ) : null}
+                      </div>
+                      <div className="rd-development-stepper__content">
+                        <h3>{title}</h3>
+                        <p>{description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
 
               <figure className="rd-development-image">
-              <img src="/home-media/rd-intro-illustration.svg" alt={content.developmentAlt} />
+                <img src="/home-media/rd-intro-illustration.png" alt={content.developmentAlt} />
               </figure>
             </div>
+          </div>
+        </section>
 
-            <ol className="rd-development-stepper" aria-label={content.developmentStepperLabel}>
-              {content.developmentSteps.map(([title, description], index) => (
-                <li key={title} className="rd-development-stepper__item">
-                  <div className="rd-development-stepper__track" aria-hidden="true">
-                    <span className="rd-development-stepper__marker">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {index < content.developmentSteps.length - 1 ? (
-                      <span className="rd-development-stepper__line" />
-                    ) : null}
+        <section className="rd-blog" aria-labelledby="rd-blog-title">
+          <div className="container">
+            <div className="rd-blog-heading">
+              <h2 id="rd-blog-title">From the lab and field.</h2>
+              <p>Practical notes from the work behind every Bondure release.</p>
+            </div>
+            <div className="rd-blog-grid">
+              {blogPosts.map((post) => (
+                <article className="rd-blog-card" key={post.title}>
+                  <div className="rd-blog-card__image">
+                    <img src={post.image} alt="" loading="lazy" decoding="async" />
                   </div>
-                  <div className="rd-development-stepper__content">
-                    <h3>{title}</h3>
-                    <p>{description}</p>
+                  <div className="rd-blog-card__body">
+                    <h3>{post.title}</h3>
+                    <p>{post.description}</p>
+                    <a href="/rd#blog">Read more</a>
                   </div>
-                </li>
+                </article>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
 
