@@ -31,17 +31,17 @@ const TOOLS_GLOW = "89, 22, 24";
 
 const toolsBlogPosts = [
   {
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    image: "/blog/real-cost.webp",
     title: "The Real Cost of Under-Ordering Tile Adhesive",
     description: "A Specifier's Guide to Accurate Coverage Calculations",
   },
   {
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    image: "/blog/screed-estimation.webp",
     title: "Floor Screed Estimation",
     description: "Getting Thickness and Coverage Right Before the Pour",
   },
   {
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+    image: "/blog/sustainability.webp",
     title: "Sustainability in Construction Chemicals",
     description: "Measuring What Actually Matters",
   },
@@ -851,7 +851,7 @@ export default function ToolsPage() {
         <section className="tools-blog" aria-labelledby="tools-blog-title">
           <div className="tools-blog__inner">
             <div className="tools-blog__heading">
-              <h2 id="tools-blog-title">From the field.</h2>
+              <h2 id="tools-blog-title">The BONDURE Journal.</h2>
               <p>Practical guidance for better planning, coverage, and material decisions.</p>
             </div>
             <div className="tools-blog__grid">

@@ -7,8 +7,6 @@ import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
 
 import "./contact.css";
 
-const SUPPORT_EMAIL = "contactus@bondure.com";
-
 const contactCopy = {
   en: {
     illustration: {
@@ -17,12 +15,12 @@ const contactCopy = {
       sales: "Sales illustration",
     },
     locationAlt: {
-      "mumbai-image": "Gateway of India in Mumbai with sky at sunset",
       "frankfurt-image": "Frankfurt skyline at night",
+      "mumbai-image": "Gateway of India in Mumbai with sky at sunset",
     },
     mapTitle: {
-      "mumbai-image": "Bondure Mumbai office map",
       "frankfurt-image": "Bondure Frankfurt office map",
+      "mumbai-image": "Bondure Mumbai office map",
     },
     mailSubject: "Contact enquiry",
     fullName: "Full name",
@@ -38,12 +36,12 @@ const contactCopy = {
       sales: "Illustration zum Vertrieb",
     },
     locationAlt: {
-      "mumbai-image": "Gateway of India in Mumbai bei Sonnenuntergang",
       "frankfurt-image": "Frankfurter Skyline bei Nacht",
+      "mumbai-image": "Gateway of India in Mumbai bei Sonnenuntergang",
     },
     mapTitle: {
-      "mumbai-image": "Karte des Bondure Büros Mumbai",
       "frankfurt-image": "Karte des Bondure Büros Frankfurt",
+      "mumbai-image": "Karte des Bondure Büros Mumbai",
     },
     mailSubject: "Kontaktanfrage",
     fullName: "Vollständiger Name",
@@ -85,21 +83,6 @@ const supportChannels = [
 
 const locations = [
   {
-    id: "mumbai-image",
-    type: "image",
-    src: "/media/contact-mumbai-office.jpg",
-    mapSrc:
-      "https://www.openstreetmap.org/export/embed.html?bbox=72.8940%2C19.1080%2C72.9180%2C19.1280&layer=mapnik&marker=19.1180%2C72.9060",
-  },
-  {
-    id: "mumbai-copy",
-    type: "copy",
-    titleKey: "contactLocationMumbaiTitle",
-    subtitleKey: "contactLocationMumbaiSubtitle",
-    directionsKey: "contactGetDirections",
-    href: "https://maps.google.com/?q=Bondure+Office+Mumbai+Powai",
-  },
-  {
     id: "frankfurt-copy",
     type: "copy",
     titleKey: "contactLocationFrankfurtTitle",
@@ -114,28 +97,59 @@ const locations = [
     mapSrc:
       "https://www.openstreetmap.org/export/embed.html?bbox=8.6680%2C50.1020%2C8.6960%2C50.1200&layer=mapnik&marker=50.1110%2C8.6820",
   },
+  {
+    id: "mumbai-image",
+    type: "image",
+    src: "/media/contact-mumbai-office.jpg",
+    mapSrc:
+      "https://www.openstreetmap.org/export/embed.html?bbox=72.8940%2C19.1080%2C72.9180%2C19.1280&layer=mapnik&marker=19.1180%2C72.9060",
+  },
+  {
+    id: "mumbai-copy",
+    type: "copy",
+    titleKey: "contactLocationMumbaiTitle",
+    subtitleKey: "contactLocationMumbaiSubtitle",
+    directionsKey: "contactGetDirections",
+    href: "https://maps.google.com/?q=Bondure+Office+Mumbai+Powai",
+  },
 ];
 
 export default function ContactPage() {
   const { locale, t } = useLocale();
   const copy = contactCopy[locale] || contactCopy.en;
-  const [submitted, setSubmitted] = useState(false);
+  const [submissionState, setSubmissionState] = useState("idle");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const data = new FormData(event.currentTarget);
-    const fullName = data.get("fullName");
-    const selectedDepartment =
-      departments.find((item) => item.id === data.get("department")) || departments[0];
-    const departmentName = t(selectedDepartment.labelKey);
-    const subject = encodeURIComponent(`${copy.mailSubject} - ${departmentName}`);
-    const body = encodeURIComponent(
-      `${copy.fullName}: ${fullName}\n${copy.email}: ${data.get("email")}\n${copy.phone}: ${data.get("phone")}\n${copy.department}: ${departmentName}\n\n${copy.message}:\n${data.get("message")}`
-    );
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const selectedDepartment = departments.find((item) => item.id === data.get("department"));
 
-    setSubmitted(true);
-    window.location.href = `mailto:${selectedDepartment.email || SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
+    setSubmissionState("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: data.get("fullName"),
+          email: data.get("email"),
+          phone: data.get("phone"),
+          department: selectedDepartment ? t(selectedDepartment.labelKey) : "Unknown",
+          message: data.get("message"),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Contact form submission failed.");
+      }
+
+      form.reset();
+      setSubmissionState("success");
+    } catch {
+      setSubmissionState("error");
+    }
   };
 
   return (
@@ -182,12 +196,13 @@ export default function ContactPage() {
                   <textarea name="message" rows={2} required />
                 </label>
 
-                <button className="contact-form__submit" type="submit">
-                  {t("contactSubmit")}
+                <button className="contact-form__submit" type="submit" disabled={submissionState === "sending"}>
+                  {submissionState === "sending" ? t("contactSubmitSending") : t("contactSubmit")}
                 </button>
 
                 <p className="contact-form__status" role="status" aria-live="polite">
-                  {submitted ? t("contactSubmitStatus") : ""}
+                  {submissionState === "success" ? t("contactSubmitStatus") : ""}
+                  {submissionState === "error" ? t("contactSubmitError") : ""}
                 </p>
               </form>
             </div>

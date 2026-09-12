@@ -19,7 +19,7 @@ const statValues = [
   { value: 700000, suffix: "+", illustration: "/home-media/test-performed.png", progress: 100 },
   { value: 1000, suffix: "+", illustration: "/home-media/stat-team.png", progress: 92 },
   { value: 30, suffix: "+", illustration: "/home-media/stat-innovation.png", progress: 72 },
-  { value: 2, suffix: "", illustration: "/home-media/stat-continents.png", progress: 36 },
+  { value: 2, suffix: "", illustration: "/home-media/stat-continents.webp", progress: 36 },
 ];
 
 function AnimatedStatCard({ stat, label }) {
@@ -79,9 +79,9 @@ function AnimatedStatCard({ stat, label }) {
           {displayValue.toLocaleString("en-US")}
           {stat.suffix}
         </strong>
-        <div className="home-stat-card__progress" aria-hidden="true">
+        {/* <div className="home-stat-card__progress" aria-hidden="true">
           <span />
-        </div>
+        </div> */}
         <p className="home-stat-card__label">{label}</p>
       </div>
     </article>

@@ -255,13 +255,14 @@ export default function RDPage() {
             <div className="rd-network-layout">
               <figure className="rd-partnerships-visual">
                 <img
-                  src="/home-media/rd-iit.png"
+                  src="/home-media/rd-mpa.png"
                   alt={content.partnershipsImageAlt}
                   loading="lazy"
                   decoding="async"
                 />
+                
                 <img
-                  src="/home-media/rd-mpa.png"
+                  src="/home-media/rd-iit.png"
                   alt={content.partnershipsImageAlt}
                   loading="lazy"
                   decoding="async"
@@ -353,32 +354,6 @@ export default function RDPage() {
                     <p>{post.description}</p>
                     <a href="/rd#blog">Read more</a>
                   </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section
-          className="rd-evidence bento-section"
-          style={{
-            "--product-spec-glow": RD_EVIDENCE_GLOW,
-            "--product-spec-glow-shadow": "rgba(64, 19, 21, 0.22)",
-          }}
-        >
-          <div className="container">
-            <div className="rd-evidence-heading">
-              <Copy delay={0.1}>
-                <h2>{content.evidenceHeading}</h2>
-                <p>{content.evidenceDescription}</p>
-              </Copy>
-            </div>
-            <div className="rd-evidence-grid" ref={evidenceGridRef}>
-              {content.evidenceRecords.map(([title, description, image]) => (
-                <article className="rd-evidence-card" key={title}>
-                  <div><img src={image} alt="" /></div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
                 </article>
               ))}
             </div>

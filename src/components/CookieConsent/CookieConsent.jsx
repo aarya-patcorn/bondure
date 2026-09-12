@@ -11,6 +11,8 @@ const defaultPreferences = {
   marketing: false,
 };
 
+const consentSessionKey = "bondure-consent-session";
+
 export default function CookieConsent() {
   const { locale, setLocale, t } = useLocale();
   const [isOpen, setIsOpen] = useState(true);
@@ -19,7 +21,7 @@ export default function CookieConsent() {
   const [preferences, setPreferences] = useState(defaultPreferences);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("bondure-consent");
+    const stored = window.sessionStorage.getItem(consentSessionKey);
     setIsOpen(!stored);
   }, []);
 
@@ -33,6 +35,7 @@ export default function CookieConsent() {
       savedAt: new Date().toISOString(),
     };
 
+    window.sessionStorage.setItem(consentSessionKey, JSON.stringify(consent));
     window.localStorage.setItem("bondure-consent", JSON.stringify(consent));
     document.documentElement.dataset.consent = "saved";
     document.cookie = `bondure_country=${country || "OTHER"}; Path=/; Max-Age=31536000; SameSite=Lax`;

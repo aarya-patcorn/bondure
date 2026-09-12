@@ -19,6 +19,7 @@
 .rd-partnerships-visual {
   display: flex;
   min-width: 0;
+  gap: clamp(1rem, 2vw, 2rem);
   align-items: center;
   justify-content: center;
   margin: 0;
@@ -26,8 +27,9 @@
 
 .rd-partnerships-visual img {
   display: block;
-  width: min(100%, 20rem);
-  height: auto;
+  width: min(100%, 18rem);
+  height: 12rem;
+  flex: 1 1 0;
   object-fit: contain;
 }
 
@@ -41,7 +43,7 @@
 .rd-people-grid h3 { padding: 1.5rem 1.5rem 0; font-size: 1.6rem; }
 .rd-people-grid p { padding: .8rem 1.5rem 1.5rem; }
 
-.rd-development { padding: 12svh 0 15svh; border-top: 1px solid var(--base-450); }
+.rd-development { padding: 10svh 0 12svh; border-top: 1px solid var(--base-450); }
 .rd-development-header {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -49,7 +51,7 @@
   gap: clamp(2rem, 5vw, 4rem);
 }
 .rd-development-intro { max-width: none; margin: 0; }
-.rd-development-intro p { max-width: 33rem; margin-top: 2rem; }
+.rd-development-intro p { max-width: 33rem; margin-top: .25rem; }
 
 .rd-development-image {
   margin: 0;
@@ -68,7 +70,8 @@
 .rd-development-stepper {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  align-items: start;
+  gap: clamp(0.25rem, 1.1vw, 1.15rem);
   margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
   padding: 0;
   list-style: none;
@@ -76,7 +79,8 @@
 
 .rd-development-stepper__item {
   display: grid;
-  gap: 1rem;
+  align-content: start;
+  gap: 0.25rem;
   min-width: 0;
 }
 
@@ -99,6 +103,8 @@
   color: var(--primary);
   font-family: var(--font-dm-mono), monospace;
   font-size: 0.72rem;
+  line-height: 1;
+  text-align: center;
   letter-spacing: 0.04em;
 }
 
@@ -122,7 +128,7 @@
 }
 
 .rd-development-stepper__content h3 {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.15rem;
   font-size: clamp(0.95rem, 1.1vw, 1.15rem);
   letter-spacing: -0.03rem;
   line-height: 1.2;
@@ -135,7 +141,7 @@
 }
 
 .rd-blog {
-  padding: clamp(5rem, 9vw, 9rem) 0;
+  padding: clamp(2rem, 9vw, 6rem) 0;
   border-top: 1px solid var(--base-450);
   background: #f4f2ef;
   color: #401315;
@@ -435,4 +441,54 @@
   .rd-development-stepper { grid-template-columns: 1fr; }
 
   .rd-development-stepper__item:last-child { grid-column: auto; }
+}
+
+/* Keep the development process as one vertical timeline at every viewport size. */
+.rd-development-stepper {
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 42rem;
+}
+
+.rd-development-stepper__item,
+.rd-development-stepper__item:last-child {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.85rem;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.rd-development-stepper__track {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  min-height: 100%;
+}
+
+.rd-development-stepper__line,
+.rd-development-stepper__item:nth-child(3n) .rd-development-stepper__line {
+  display: block;
+  position: static;
+  width: 2px;
+  min-height: 1.5rem;
+  margin-top: 0.35rem;
+  background: var(--base-400);
+  transform: none;
+}
+
+.rd-development-stepper__item:last-child .rd-development-stepper__line {
+  display: none;
+}
+
+.rd-development-stepper__content {
+  padding: 0 0 1.35rem;
+}
+
+.rd-development-stepper__item:last-child .rd-development-stepper__content {
+  padding-bottom: 0;
 }

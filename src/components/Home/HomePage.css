@@ -193,7 +193,7 @@
 }
 
 .home-stats__inner {
-  max-width: 80rem;
+  max-width: 88rem;
   margin: 0 auto;
 }
 
@@ -209,33 +209,38 @@
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto auto;
-  row-gap: clamp(1rem, 2vw, 1.75rem);
+  row-gap: clamp(1.5rem, 3vw, 2.75rem);
   align-items: end;
   width: 100%;
-  height: clamp(16rem, 18vw, 19rem);
+  height: clamp(19.25rem, 21.5vw, 13.375rem);
   padding: var(--home-stat-card-padding);
   overflow: hidden;
   border: 0;
   border-radius: clamp(1.5rem, 2.2vw, 1.875rem);
   /* background: #ffffff; */
-  box-shadow: 0 1.25rem 2.5rem rgba(35, 27, 28, .14);
+  /* box-shadow: 0 1.25rem 2.5rem rgba(35, 27, 28, .14); */
   isolation: isolate;
 }
 
+.home-stat-card__spacer {
+  display: none;
+  pointer-events: none;
+}
+
 .home-stat-card__visual {
-  display: flex;
-  min-height: 0;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  min-height: 100;
+  overflow: visible;
 }
 
 .home-stat-card img {
   position: relative;
   z-index: 1;
-  width: min(100%, clamp(10rem, 14vw, 15rem));
-  height: min(100%, clamp(10rem, 14vw, 15rem));
+  width: min(100%, clamp(9rem, 12.5vw, 13.25rem));
+  height: 100%;
   max-height: 100%;
-  margin: 0;
+  margin: 0 auto;
   min-height: 0;
   object-fit: contain;
   object-position: center;
@@ -291,17 +296,23 @@
   z-index: 3;
 }
 
+.home-stat-card__content {
+  position: relative;
+  padding-top: clamp(2rem, 3vw, 2.75rem);
+}
+
 .home-stat-card strong {
   position: absolute;
-  bottom: calc(100% + .65rem);
-  left: var(--home-stat-progress);
+  top: 0;
+  bottom: auto;
+  left: 50%;
   margin: 0;
   color: var(--primary);
   font: 700 clamp(1.55rem, 2.7vw, 2.05rem)/1 var(--font-crimson-pro), serif;
   letter-spacing: -.03em;
   white-space: nowrap;
-  transform: translateX(-100%);
-  transition: left 1.5s cubic-bezier(.22, 1, .36, 1);
+  transform: translateX(-50%);
+  transition: none;
 }
 
 .home-stat-card__metric {
@@ -309,10 +320,10 @@
   z-index: 3;
   width: 100%;
   align-self: end;
-  margin-top: 0;
+  margin-top: clamp(1.5rem, 3vw, 3.75rem);
   opacity: 0;
   transform: translate(-2.5rem, 1.25rem);
-  transition: opacity .7s ease, transform .7s cubic-bezier(/.22, 1, .36, 1);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22, 1, .36, 1);
 }
 
 .home-stat-card.is-visible .home-stat-card__metric {
@@ -320,26 +331,9 @@
   transform: translate(0, 0);
 }
 
-.home-stat-card__progress {
-  width: 100%;
-  height: .4rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(35, 27, 28, .1);
-}
-
-.home-stat-card__progress span {
-  display: block;
-  width: var(--home-stat-progress);
-  height: 100%;
-  border-radius: inherit;
-  background: var(--primary);
-  transition: width 1.5s cubic-bezier(.22, 1, .36, 1);
-}
-
 .home-stat-card__label {
   grid-row: 3;
-  margin: 1.25rem 0 0;
+  margin: .25rem 0 0;
   font: 700 clamp(.9rem, 1.2vw, 1.15rem)/1.2 var(--font-manrope), sans-serif;
   letter-spacing: .02em;
   text-align: center;
@@ -348,105 +342,10 @@
 @media (prefers-reduced-motion: reduce) {
 
   .home-stat-card img,
-  .home-stat-card__progress span,
   .home-stat-card__metric,
   .home-stat-card strong,
   .home-stat-card__stroke path {
     transition: none;
-  }
-}
-
-/* Rebuilt home statistics section */
-.home-stats {
-  background: transparent;
-}
-
-.home-stat-card {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
-  height: clamp(18rem, 22vw, 22rem);
-  padding: clamp(1rem, 2vw, 1.5rem);
-  border-radius: clamp(1.25rem, 2vw, 1.75rem);
-  background: transparent;
-  box-shadow: none;
-}
-
-.home-stat-card__visual {
-  display: flex;
-  min-height: 0;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-stat-card__visual img {
-  width: min(100%, clamp(9rem, 13vw, 13rem));
-  height: min(100%, clamp(9rem, 13vw, 13rem));
-  max-height: 100%;
-  margin: 0;
-  object-fit: contain;
-}
-
-.home-stat-card__content {
-  position: relative;
-  min-width: 0;
-  padding-top: clamp(2.75rem, 4vw, 3.5rem);
-  opacity: 0;
-  transform: translateX(-2rem);
-  transition: opacity .7s ease, transform .7s cubic-bezier(.22, 1, .36, 1);
-}
-
-.home-stat-card.is-visible .home-stat-card__content {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.home-stat-card__content strong {
-  position: absolute;
-  top: 0;
-  left: var(--home-stat-progress);
-  z-index: 1;
-  margin: 0;
-  color: var(--primary);
-  font: 700 clamp(1.5rem, 2.5vw, 2.35rem)/1 var(--font-crimson-pro), serif;
-  letter-spacing: -.03em;
-  white-space: nowrap;
-  transform: translateX(-100%);
-  transition: left 1.5s cubic-bezier(.22, 1, .36, 1);
-}
-
-.home-stat-card__progress {
-  width: 100%;
-  height: .6rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(35, 27, 28, .12);
-}
-
-.home-stat-card__progress span {
-  display: block;
-  width: var(--home-stat-progress);
-  height: 100%;
-  border-radius: inherit;
-  background: var(--primary);
-  transition: width 1.5s cubic-bezier(.22, 1, .36, 1);
-}
-
-.home-stat-card__content .home-stat-card__label {
-  margin: clamp(.9rem, 1.5vw, 1.25rem) 0 0;
-  color: var(--base-100);
-  font: 700 clamp(.85rem, 1.1vw, 1.05rem)/1.2 var(--font-manrope), sans-serif;
-  text-align: center;
-}
-
-@media (max-width: 560px) {
-  .home-stat-card {
-    height: clamp(15rem, 48vw, 18rem);
-  }
-
-  .home-stat-card__visual img {
-    width: min(100%, clamp(6rem, 20vw, 8rem));
-    height: min(100%, clamp(6rem, 20vw, 8rem));
   }
 }
 
@@ -896,7 +795,7 @@ html[data-theme="dark"] .home-standards__title {
 
   .home-stat-card {
     width: 100%;
-    height: clamp(17.5rem, 48vw, 22rem);
+    height: clamp(20.5rem, 56vw, 26.5rem);
   }
 
   .home-stat-card img {
@@ -958,7 +857,7 @@ html[data-theme="dark"] .home-standards__title {
   .home-stat-card {
     width: 100%;
     max-width: none;
-    height: clamp(13.5rem, 40vw, 17.5rem);
+    height: clamp(14.5rem, 44vw, 19rem);
     --home-stat-card-padding: clamp(0.8rem, 2.5vw, 1rem);
     --home-stat-value-line-height: clamp(1.65rem, 5vw, 2.25rem);
     --home-stat-label-line-height: clamp(0.85rem, 2.8vw, 1rem);
