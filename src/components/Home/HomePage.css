@@ -238,7 +238,7 @@
   position: relative;
   z-index: 1;
   width: min(100%, clamp(9rem, 12.5vw, 13.25rem));
-  height: 100%;
+  height: 92%;
   max-height: 100%;
   margin: 0 auto;
   min-height: 0;
@@ -249,6 +249,15 @@
 
 .home-stat-card:hover img {
   transform: translateY(-.35rem) scale(1.025);
+}
+
+/* The team illustration has artwork very close to its top edge. Keep the full head visible. */
+.home-stat-card img[src*="stat-team"] {
+  transform: scale(.88);
+}
+
+.home-stat-card:hover img[src*="stat-team"] {
+  transform: translateY(-.35rem) scale(.9);
 }
 
 .home-stat-card__strokes {
