@@ -137,7 +137,6 @@
   display: inline-flex;
   margin-top: auto;
   padding: .7rem 1rem;
-  border-radius: 999px;
   background: var(--tools-ink);
   color: var(--tools-panel);
   font-size: .72rem;
@@ -749,14 +748,13 @@
 }
 
 .tools-btn--primary {
-  background: var(--tools-ink);
+  background:  #5A1E1E;
   color: #fff;
 }
 
 .tools-btn--ghost {
   background: transparent;
-  border-color: var(--tools-line);
-  color: var(--tools-ink);
+  color: #fff;
 }
 
 .tools-results {

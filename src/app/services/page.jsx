@@ -6,6 +6,7 @@ import Copy from "@/components/Copy/Copy";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import HowWeWork from "@/components/HowWeWork/HowWeWork";
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
+import PreflightRequest from "@/components/PreflightRequest/PreflightRequest";
 import Spotlight from "@/components/Spotlight/Spotlight";
 import ServiceImageTower from "@/components/ServiceImageTower/ServiceImageTower";
 import TelescopeSpotlight from "@/components/TelescopeSpotlight/TelescopeSpotlight";
@@ -163,7 +164,9 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <Spotlight />
+        <PreflightRequest />
+
+        <Spotlight includeMobileUnit={false} />
 
         <TelescopeSpotlight />
 

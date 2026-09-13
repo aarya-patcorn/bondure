@@ -142,7 +142,6 @@
   flex-shrink: 0;
   padding: 0.85rem 1.25rem;
   color: var(--base-500);
-  border-radius: 999px;
   background: var(--base-100);
   will-change: transform, opacity;
 }

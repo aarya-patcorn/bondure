@@ -121,10 +121,11 @@ const HowWeWork = () => {
       const mainTrigger = ScrollTrigger.create({
         trigger: container,
         start: "top top",
-        endTrigger: cards,
-        end: "bottom bottom",
+        end: () => `+=${Math.max(cards.scrollHeight - window.innerHeight, 0)}`,
         pin: header,
-        pinSpacing: false,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
       });
       scrollTriggersRef.current.push(mainTrigger);
 

@@ -666,7 +666,7 @@ color: var(--products-muted);
 .products-page .product-card__cta::part(base) {
   width: 100%;
   min-height: 2.8rem;
-  border-radius: 999px;
+  /* border-radius: 999px; */
 }
 
 @media (min-width: 1100px) {
@@ -778,7 +778,7 @@ color: var(--products-muted);
 .products-page .product-card__cta::part(base) {
   min-height: 3.5rem;
   border-color: #080808;
-  border-radius: 0.25rem;
+  /* border-radius: 0.25rem; */
   background: #080808;
   color: #fff;
   text-transform: uppercase;
@@ -899,7 +899,7 @@ color: var(--products-muted);
   min-height: 2.5rem;
   padding-inline: 1.15rem;
   border: 1px solid var(--products-ink);
-  border-radius: 999px;
+  /* border-radius: 999px; */
   background: transparent;
   color: var(--products-ink);
   font-size: 0.75rem;

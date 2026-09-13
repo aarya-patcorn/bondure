@@ -93,6 +93,7 @@ const TopBar = () => {
   const [openMenu, setOpenMenu] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeProductCategory, setActiveProductCategory] = useState("tile-adhesive");
+  const [isDarkBackdrop, setIsDarkBackdrop] = useState(false);
   let lastScrollY = 0;
   let isScrolling = false;
 
@@ -204,6 +205,31 @@ const TopBar = () => {
   }, [pathname]);
 
   useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return undefined;
+
+    const updateBackdropTone = () => {
+      const sampleY = Math.min(window.innerHeight - 1, header.offsetHeight + 8);
+      const elements = document.elementsFromPoint(window.innerWidth / 2, sampleY);
+      const section = elements.map((element) => element.closest("section")).find(Boolean);
+      const background = section ? getComputedStyle(section).backgroundColor : "";
+      const channels = background.match(/\d+(?:\.\d+)?/g)?.map(Number) || [];
+      const [red = 255, green = 255, blue = 255, alpha = 1] = channels;
+      const luminance = (red * 0.299 + green * 0.587 + blue * 0.114) / 255;
+
+      setIsDarkBackdrop(alpha > 0 && luminance < 0.45);
+    };
+
+    updateBackdropTone();
+    window.addEventListener("scroll", updateBackdropTone, { passive: true });
+    window.addEventListener("resize", updateBackdropTone);
+    return () => {
+      window.removeEventListener("scroll", updateBackdropTone);
+      window.removeEventListener("resize", updateBackdropTone);
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     document.body.classList.toggle("mobile-nav-open", mobileMenuOpen);
     return () => document.body.classList.remove("mobile-nav-open");
   }, [mobileMenuOpen]);
@@ -219,7 +245,7 @@ const TopBar = () => {
 
   return (
     <header
-      className={`site-chrome${openMenu ? " mega-menu-open" : ""}`}
+      className={`site-chrome${openMenu ? " mega-menu-open" : ""}${isDarkBackdrop ? " site-chrome--dark" : ""}`}
       ref={headerRef}
     >
       <div className="top-bar">

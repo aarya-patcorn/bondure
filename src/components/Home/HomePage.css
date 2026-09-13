@@ -166,7 +166,6 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.95rem 1.45rem;
-  border-radius: 999px;
   background: var(--primary);
   color: #fff;
   font-family: var(--font-manrope), sans-serif;
@@ -188,7 +187,7 @@
 }
 
 .home-stats {
-  padding: clamp(4rem, 8vw, 7.5rem) clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(4rem, 6vw, 7.5rem) clamp(1.25rem, 4vw, 3rem);
   background: #e7e7e7;
 }
 
@@ -209,7 +208,7 @@
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto auto;
-  row-gap: clamp(1.5rem, 3vw, 2.75rem);
+  row-gap: clamp(.35rem, .8vw, .7rem);
   align-items: end;
   width: 100%;
   height: clamp(19.25rem, 21.5vw, 13.375rem);
@@ -237,11 +236,12 @@
 .home-stat-card img {
   position: relative;
   z-index: 1;
-  width: min(100%, clamp(9rem, 12.5vw, 13.25rem));
+  width: min(100%, clamp(11rem, 15vw, 16rem));
   height: 92%;
   max-height: 100%;
   margin: 0 auto;
   min-height: 0;
+  opacity: .72;
   object-fit: contain;
   object-position: center;
   transition: transform .45s ease;
@@ -307,7 +307,7 @@
 
 .home-stat-card__content {
   position: relative;
-  padding-top: clamp(2rem, 3vw, 2.75rem);
+  padding-top: clamp(2.25rem, 2.5vw, 1.75rem);
 }
 
 .home-stat-card strong {

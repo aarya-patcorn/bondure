@@ -1,0 +1,121 @@
+.preflight-request {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-height: min(42rem, 88vh);
+  margin: clamp(3rem, 7vw, 7rem) 1rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: var(--base-450);
+}
+
+.preflight-request__media {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.preflight-request__media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preflight-request__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(20, 19, 19, .04), rgba(20, 19, 19, .38));
+}
+
+.preflight-request__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 4rem);
+}
+
+.preflight-request__eyebrow {
+  margin: 0 0 1rem;
+  color: var(--primary);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.preflight-request h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.2rem, 3.2vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+}
+
+.preflight-request__description {
+  max-width: 30rem;
+  margin: 0 0 1.5rem;
+  color: var(--base-250);
+  line-height: 1.5;
+}
+
+.preflight-request ul {
+  max-width: 30rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(35, 27, 28, .16);
+}
+
+.preflight-request li {
+  position: relative;
+  padding: .85rem .85rem .85rem 1.5rem;
+  border-bottom: 1px solid rgba(35, 27, 28, .16);
+  color: var(--base-200);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.preflight-request li::before {
+  position: absolute;
+  top: 1.2rem;
+  left: .15rem;
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+  background: var(--primary-light);
+  content: "";
+}
+
+.preflight-request__action {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  padding: .85rem 1.2rem;
+  background: var(--primary);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.preflight-request__action:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .preflight-request {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    margin: clamp(2.5rem, 8vw, 4rem) 1rem;
+  }
+
+  .preflight-request__media {
+    min-height: clamp(14rem, 52vw, 22rem);
+  }
+
+  .preflight-request__content {
+    padding: clamp(1.5rem, 6vw, 2.5rem);
+  }
+}

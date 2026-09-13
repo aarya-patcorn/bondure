@@ -234,7 +234,7 @@
 
 .history-entry--left .history-entry__period {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
   justify-self: end;
   padding-right: clamp(2rem, 5vw, 5rem);
   text-align: right;
@@ -243,7 +243,7 @@
 .history-entry--left .history-entry__image {
   grid-column: 2;
   grid-row: 3 / span 2;
-  margin-top: clamp(1.5rem, 3vw, 3rem);
+  margin-top: clamp(2rem, 5vw, 5rem);
   margin-left: clamp(-2rem, -4vw, -5rem);
 }
 
@@ -251,7 +251,7 @@
   grid-column: 1;
   grid-row: 3;
   justify-self: end;
-  padding-top: clamp(2rem, 5vw, 5rem);
+  padding-top: clamp(7rem, 8vw, 10rem);
   text-align: right;
 }
 
@@ -265,7 +265,7 @@
 
 .history-entry--right .history-entry__period {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 3;
   padding-left: clamp(2rem, 5vw, 5rem);
 }
 
@@ -273,14 +273,14 @@
   grid-column: 1;
   grid-row: 3 / span 2;
   justify-self: end;
-  margin-top: clamp(1.5rem, 3vw, 3rem);
+  margin-top: clamp(2rem, 5vw, 5rem);
   margin-right: clamp(-2rem, -4vw, -5rem);
 }
 
 .history-entry--right .history-entry__heading {
   grid-column: 2;
   grid-row: 3;
-  padding-top: clamp(2rem, 5vw, 5rem);
+  padding-top: clamp(7rem, 8vw, 10rem);
 }
 
 .history-entry--right .history-entry__card {

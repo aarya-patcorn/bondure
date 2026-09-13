@@ -22,7 +22,7 @@
   position: relative;
   z-index: 2;
   margin-top: -12svh;
-  padding: 16svh 0 14svh;
+  padding: 16svh 0 7svh;
   background:
     linear-gradient(
       180deg,
@@ -69,19 +69,7 @@
 }
 .service-pillar-visual .signal { stroke: var(--primary-light); stroke-width: 2; }.service-pillar-visual .signal-dot { fill: var(--primary-light); stroke: none; }
 .service-pillar h3 { min-height: 2.2em; margin-bottom: .75rem; line-height: 1.05; }
-.service-pillar > p {
-  max-width: 38ch;
-  color: var(--base-300);
-  line-height: 1.45;
-  opacity: 0;
-  transform: translateY(0.35rem);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.service-pillar:hover > p,
-.service-pillar:focus-within > p {
-  opacity: 1;
-  transform: translateY(0);
-}
+
 @media (hover: none) {
   .service-pillar > p {
     opacity: 1;
@@ -238,7 +226,6 @@
   display: inline-flex;
   margin-top: auto;
   padding: .7rem 1rem;
-  border-radius: 999px;
   background: var(--primary);
   color: var(--base-500);
   font-size: .72rem;

@@ -62,10 +62,13 @@ const experiences = {
   ],
 };
 
-export default function Spotlight() {
+export default function Spotlight({ includeMobileUnit = true }) {
   const { locale } = useLocale();
   const videoRef = useRef(null);
   const [videoEnabled, setVideoEnabled] = useState(false);
+  const visibleExperiences = includeMobileUnit
+    ? experiences[locale]
+    : experiences[locale].filter((experience) => experience.type !== "video");
 
   useEffect(() => {
     const video = videoRef.current;
@@ -89,9 +92,9 @@ export default function Spotlight() {
   return (
     <section className="spotlight" id="experience-center">
       <div className="spotlight-cards">
-        {experiences[locale].map((experience, index) => (
+        {visibleExperiences.map((experience) => (
           <article
-            className={`spotlight-card${index === 1 ? " spotlight-card--reverse" : ""}`}
+            className={`spotlight-card${experience.tourLabel ? " spotlight-card--reverse" : ""}`}
             key={experience.title}
           >
             <div className="spotlight-card-media">
@@ -120,7 +123,7 @@ export default function Spotlight() {
                   <li key={point}>{point}</li>
                 ))}
               </ul>
-              {index === 1 && (
+              {experience.tourLabel && (
                 <a className="spotlight-tour-link" href="https://kuula.co/share/Lq1g7?logo=0&info=1&fs=1&vr=0&sd=1&thumbs=1" target="_blank" rel="noreferrer">
                   <span className="spotlight-tour-link__icon spotlight-tour-link__icon--360" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none">

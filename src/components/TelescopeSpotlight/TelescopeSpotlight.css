@@ -47,7 +47,7 @@
   will-change: transform;
 }
 
-.telescope-spotlight-intro-word:first-child { text-align: right; }
+.telescope-spotlight-intro-word:nth-of-type(1) { text-align: end; }
 
 .telescope-spotlight-bg {
   position: absolute;

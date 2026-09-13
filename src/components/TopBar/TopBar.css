@@ -507,6 +507,11 @@ html[data-theme="dark"] .top-bar-nav__links a {
   color: var(--base-100);
 }
 
+.site-chrome--dark .top-bar-logo,
+.site-chrome--dark .top-bar-nav__links a {
+  color: #fff;
+}
+
 @media (max-width: 1000px) {
   :root {
     --site-chrome-top-height: 3.35rem;
