@@ -33,7 +33,7 @@
   font-family: var(--font-crimson-pro), serif;
   font-size: clamp(2.35rem, 4.6vw, 4.25rem);
   font-weight: 400;
-  line-height: 1.04;
+  line-height: 0.9;
   letter-spacing: -0.035em;
   text-align: left;
   text-wrap: pretty;

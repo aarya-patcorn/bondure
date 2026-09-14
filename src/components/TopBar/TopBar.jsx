@@ -85,6 +85,8 @@ const TopBar = () => {
   const headerRef = useRef(null);
   const searchInputRef = useRef(null);
   const closeMenuTimerRef = useRef(null);
+  const lastScrollYRef = useRef(0);
+  const scrollFrameRef = useRef(null);
   const pathname = usePathname();
   const { navigateWithTransition } = useViewTransition();
   const { locale, t } = useLocale();
@@ -94,9 +96,6 @@ const TopBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeProductCategory, setActiveProductCategory] = useState("tile-adhesive");
   const [isDarkBackdrop, setIsDarkBackdrop] = useState(false);
-  let lastScrollY = 0;
-  let isScrolling = false;
-
   const clearCloseMenuTimer = () => {
     if (closeMenuTimerRef.current) {
       window.clearTimeout(closeMenuTimerRef.current);
@@ -128,40 +127,52 @@ const TopBar = () => {
       return;
     }
 
-    const headerHeight = header.offsetHeight;
+    lastScrollYRef.current = window.scrollY;
     gsap.set(header, { y: 0 });
 
     const handleScroll = () => {
-      if (isScrolling) return;
-      if (header.matches(":hover") || header.contains(document.activeElement)) return;
+      if (scrollFrameRef.current) return;
 
-      isScrolling = true;
-      const currentScrollY = window.scrollY;
-      const direction = currentScrollY > lastScrollY ? 1 : -1;
+      scrollFrameRef.current = window.requestAnimationFrame(() => {
+        scrollFrameRef.current = null;
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - lastScrollYRef.current;
 
-      if (direction === 1 && currentScrollY > 50) {
-        gsap.to(header, {
-          y: -headerHeight,
-          duration: 1,
-          ease: "power4.out",
-        });
-      } else if (direction === -1) {
-        gsap.to(header, {
-          y: 0,
-          duration: 1,
-          ease: "power4.out",
-        });
-      }
+        if (Math.abs(scrollDelta) < 3) return;
 
-      lastScrollY = currentScrollY;
-      setTimeout(() => {
-        isScrolling = false;
-      }, 100);
+        if (header.matches(":hover") || header.contains(document.activeElement)) {
+          lastScrollYRef.current = currentScrollY;
+          return;
+        }
+
+        if (scrollDelta > 0 && currentScrollY > header.offsetHeight) {
+          // Hide only while travelling down the page.
+          gsap.to(header, {
+            y: -header.offsetHeight,
+            duration: 0.25,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        } else if (scrollDelta < 0 || currentScrollY <= header.offsetHeight) {
+          // Any upward movement immediately restores the navigation.
+          gsap.to(header, {
+            y: 0,
+            duration: 0.2,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        }
+
+        lastScrollYRef.current = currentScrollY;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollFrameRef.current) window.cancelAnimationFrame(scrollFrameRef.current);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -172,6 +183,7 @@ const TopBar = () => {
       return;
     }
 
+    lastScrollYRef.current = window.scrollY;
     gsap.set(header, { y: 0 });
   }, [pathname]);
 

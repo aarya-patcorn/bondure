@@ -69,6 +69,16 @@ h3 {
   line-height: 1.2;
 }
 
+/* Section headings use the BONDURE wordmark typeface. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-crimson-pro), serif !important;
+}
+
 p {
   font-size: 1rem;
   font-weight: 500;
@@ -101,6 +111,19 @@ p.md.mono {
 
 p.lg.mono {
   font-size: 1.1rem;
+}
+
+/* Supporting copy and controls use the navigation typeface. */
+p,
+li,
+blockquote,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: var(--font-manrope), sans-serif !important;
 }
 
 a {

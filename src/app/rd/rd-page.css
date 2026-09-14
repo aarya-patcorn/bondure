@@ -78,7 +78,7 @@
 .rd-people-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 72rem;
+  max-width: 82rem;
   gap: 1rem;
   margin: 0 auto;
 }

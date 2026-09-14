@@ -68,16 +68,19 @@ const copy = {
 
 const serviceBlogPosts = [
   {
+    slug: "application-training-risk-management",
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
     title: "Application Training as Risk Management",
     description: "Why Most Site Failures Aren't About the Product",
   },
   {
-    image: "blog/van_lab.jpeg",
+    slug: "mobile-testing-lab",
+    image: "/blog/van_lab.jpeg",
     title: "What a Mobile Testing Lab",
     description: "Can Tell You Before You Ever Specify a Product",
   },
   {
+    slug: "diagnosing-recurring-tile-debonding",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
     title: "Diagnosing a Recurring Tile Debonding Issue",
     description: "An On-Site Quality Audit Walkthrough",
@@ -185,7 +188,7 @@ export default function ServicesPage() {
                   <div className="service-blog-card__body">
                     <h3>{post.title}</h3>
                     <p>{post.description}</p>
-                    <a href="/services#blog">Read more</a>
+                    <a href={`/articles/${post.slug}`}>Read more</a>
                   </div>
                 </article>
               ))}
