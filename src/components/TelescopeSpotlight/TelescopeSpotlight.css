@@ -16,7 +16,7 @@
   justify-content: center;
   gap: .6rem;
   overflow: hidden;
-  border-radius: 2rem;
+  border-radius: 10px;
   background: var(--base-450);
 }
 

@@ -204,7 +204,7 @@
 }
 
 .home-stat-card {
-  --home-stat-card-padding: clamp(1.15rem, 1.8vw, 1.5rem);
+  --home-stat-card-padding: clamp(0.15rem, 0.8vw, 0.5rem);
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto auto;
@@ -219,6 +219,7 @@
   /* background: #ffffff; */
   /* box-shadow: 0 1.25rem 2.5rem rgba(35, 27, 28, .14); */
   isolation: isolate;
+  text-transform: uppercase;
 }
 
 .home-stat-card__spacer {
@@ -454,7 +455,7 @@
   flex-direction: column;
   padding: clamp(1.5rem, 3vw, 2.5rem);
   border: 0;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .home-sustainability__pillar--measure {
@@ -510,7 +511,7 @@
   display: block;
   padding: 0;
   border: 0;
-  border-radius: clamp(1rem, 1.6vw, 1.35rem);
+  border-radius: 10px;
   background: #c8dfc9;
 }
 

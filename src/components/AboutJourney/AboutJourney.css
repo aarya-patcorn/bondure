@@ -236,7 +236,7 @@
   grid-column: 1;
   grid-row: 3;
   justify-self: end;
-  padding-right: clamp(2rem, 5vw, 5rem);
+  padding-right: clamp(1rem, 2vw, 4rem);
   text-align: right;
 }
 

@@ -7,8 +7,8 @@ export const serviceImageTowerSlides = [
       de: "Technik-Team von Bondure prüft Baustellenbedingungen auf einem Bauprojekt",
     },
     statement: {
-      en: "Our technical team turns site conditions into clear action.",
-      de: "Unser Technik-Team macht aus Baustellenbedingungen klare Maßnahmen.",
+      en: "Spot risks early.",
+      de: "Risiken früh erkennen.",
     },
   },
   {
@@ -19,8 +19,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure-Spezialist prüft Material und Untergrundqualität vor Ort",
     },
     statement: {
-      en: "Site audits reveal risks before application begins.",
-      de: "Baustellenprüfungen zeigen Risiken vor Beginn der Anwendung auf.",
+      en: "Clear site guidance.",
+      de: "Klare Beratung vor Ort.",
     },
   },
   {
@@ -31,8 +31,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure Fliesenkleber-Produkt, empfohlen für die Projektanforderungen",
     },
     statement: {
-      en: "Product recommendations are built around your project.",
-      de: "Produktempfehlungen werden auf Ihr Projekt abgestimmt.",
+      en: "Recommendations for your project.",
+      de: "Empfehlungen für Ihr Projekt.",
     },
   },
   {
@@ -43,8 +43,8 @@ export const serviceImageTowerSlides = [
       de: "Technischer Support von Bondure bei der Unterstützung auf der Baustelle",
     },
     statement: {
-      en: "After-sales support continues beyond product delivery.",
-      de: "Unser Kundendienst begleitet Sie über die Produktlieferung hinaus.",
+      en: "Support beyond delivery.",
+      de: "Support über die Lieferung hinaus.",
     },
   },
   {
@@ -55,8 +55,8 @@ export const serviceImageTowerSlides = [
       de: "Technik-Team von Bondure demonstriert die Anwendungstechnik bei einer Schulung vor Ort",
     },
     statement: {
-      en: "Practical training builds confidence across every crew.",
-      de: "Praxisnahe Schulungen stärken die Sicherheit jedes Teams.",
+      en: "Train every crew.",
+      de: "Jedes Team praxisnah schulen.",
     },
   },
   {
@@ -67,8 +67,8 @@ export const serviceImageTowerSlides = [
       de: "Mobile technische Einheit von Bondure auf dem Weg zur Baustelle",
     },
     statement: {
-      en: "Our lab on wheels comes directly to your site.",
-      de: "Unser mobiles Labor kommt direkt zu Ihrer Baustelle.",
+      en: "Lab expertise on-site.",
+      de: "Laborkompetenz direkt vor Ort.",
     },
   },
   {
@@ -79,8 +79,8 @@ export const serviceImageTowerSlides = [
       de: "Mobiles Labor von Bondure führt Live-Experimente zur Produktleistung vor Ort durch",
     },
     statement: {
-      en: "Live experiments make product performance fully transparent.",
-      de: "Live-Experimente machen die Produktleistung vollständig transparent.",
+      en: "See performance live.",
+      de: "Leistung live erleben.",
     },
   },
   {
@@ -91,8 +91,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure-Team vergleicht Produktleistungen direkt nebeneinander vor Ort",
     },
     statement: {
-      en: "Side-by-side testing makes every comparison visible.",
-      de: "Direkte Vergleichstests machen jeden Unterschied sichtbar.",
+      en: "Compare results clearly.",
+      de: "Ergebnisse klar vergleichen.",
     },
   },
   {
@@ -103,8 +103,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure Material-Erlebniszentrum mit praxisnahen Anwendungsvorführungen",
     },
     statement: {
-      en: "Experience centres bring expert guidance closer to every city.",
-      de: "Erlebniszentren bringen fachkundige Beratung näher in jede Stadt.",
+      en: "Expertise closer to you.",
+      de: "Expertise näher bei Ihnen.",
     },
   },
 ];

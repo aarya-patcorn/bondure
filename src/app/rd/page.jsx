@@ -21,19 +21,43 @@ const RD_PEOPLE_GLOW = "89, 22, 24";
 
 const blogPosts = [
   {
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=85",
-    title: "Inside 700,000+ Tests",
-    description: "What Rigorous Product Validation Actually Looks Like",
+    slug: "inside-700000-tests",
+    image:
+      "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=85",
+    title: {
+      en: "Inside 700,000+ Tests",
+      de: "Einblick in über 700.000 Tests",
+    },
+    description: {
+      en: "What Rigorous Product Validation Actually Looks Like",
+      de: "Wie eine gründliche Produktvalidierung tatsächlich aussieht",
+    },
   },
   {
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
-    title: "C2, TE, S1, S2:",
-    description: "A Specifier's Plain-English Guide to Adhesive Classification Standards",
+    slug: "adhesive-classification-standards",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    title: {
+      en: "C2, TE, S1, S2:",
+      de: "C2, TE, S1, S2:",
+    },
+    description: {
+      en: "A Specifier's Plain-English Guide to Adhesive Classification Standards",
+      de: "Ein verständlicher Leitfaden für Planer zu Kleber-Klassifizierungsstandards",
+    },
   },
   {
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
-    title: "Sustainability in Construction Chemicals",
-    description: "Measuring What Actually Matters",
+    slug: "sustainability-construction-chemicals",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+    title: {
+      en: "Sustainability in Construction Chemicals",
+      de: "Nachhaltigkeit bei Bauchemikalien",
+    },
+    description: {
+      en: "Measuring What Actually Matters",
+      de: "Messen, was wirklich zählt",
+    },
   },
 ];
 
@@ -81,7 +105,7 @@ const copy = {
       ctaHref: "/connect",
       imageAlt: "Bondure R&D process diagram showing on-site application, modified QSPR model, computational tools, automated factories, lab and field validation, and deploy and continuous improve",
     },
-    partnershipsHeading: "Research partnerships.",
+    partnershipsHeading: "Research partnerships",
     partnershipsImageAlt: "Bondure research partnerships with IIT Bombay and MPA University of Stuttgart",
     peopleHeading: "One shared standard.",
     peopleDescription: "Research. Application. Verification.",
@@ -105,7 +129,7 @@ const copy = {
         alt: "Technical team inspecting bonded block samples on a construction site",
       },
     ],
-    developmentHeading: "From lab to site.",
+    developmentHeading: "From lab to site",
     developmentDescription: "Evidence guides every release.",
     developmentAlt: "Engineer reviewing technical work in an industrial setting",
     developmentStepperLabel: "Research and development process",
@@ -260,7 +284,7 @@ export default function RDPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                
+
                 <img
                   src="/home-media/rd-iit.png"
                   alt={content.partnershipsImageAlt}
@@ -287,7 +311,6 @@ export default function RDPage() {
           <div className="container">
             <Copy delay={0.1}>
               <h2>{content.peopleHeading}</h2>
-              <p>{content.peopleDescription}</p>
             </Copy>
             <div className="rd-people-grid" ref={peopleGridRef}>
               {content.researchRoles.map((role) => (
@@ -331,7 +354,7 @@ export default function RDPage() {
               </div>
 
               <figure className="rd-development-image">
-                <img src="/home-media/rd-intro-illustration.png" alt={content.developmentAlt} />
+                <img src="/home-media/rd-intro-illustration.webp" alt={content.developmentAlt} />
               </figure>
             </div>
           </div>
@@ -345,14 +368,14 @@ export default function RDPage() {
             </div>
             <div className="rd-blog-grid">
               {blogPosts.map((post) => (
-                <article className="rd-blog-card" key={post.title}>
+                <article className="rd-blog-card" key={post.slug}>
                   <div className="rd-blog-card__image">
                     <img src={post.image} alt="" loading="lazy" decoding="async" />
                   </div>
                   <div className="rd-blog-card__body">
-                    <h3>{post.title}</h3>
-                    <p>{post.description}</p>
-                    <a href="/rd#blog">Read more</a>
+                    <h3>{post.title[locale]}</h3>
+                    <p>{post.description[locale]}</p>
+                    <a href={`/articles/${post.slug}`}>{locale === "de" ? "Weiterlesen" : "Read more"}</a>
                   </div>
                 </article>
               ))}

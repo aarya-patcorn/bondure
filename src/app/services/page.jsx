@@ -69,21 +69,40 @@ const copy = {
 const serviceBlogPosts = [
   {
     slug: "application-training-risk-management",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
-    title: "Application Training as Risk Management",
-    description: "Why Most Site Failures Aren't About the Product",
+    image: "/services/application-training-risk-management.webp",
+    title: {
+      en: "Application Training as Risk Management",
+      de: "Anwendungsschulungen als Risikomanagement",
+    },
+    description: {
+      en: "Why Most Site Failures Aren't About the Product",
+      de: "Warum die meisten Baustellenprobleme nicht am Produkt liegen",
+    },
   },
   {
     slug: "mobile-testing-lab",
     image: "/blog/van_lab.jpeg",
-    title: "What a Mobile Testing Lab",
-    description: "Can Tell You Before You Ever Specify a Product",
+    title: {
+      en: "What a Mobile Testing Lab",
+      de: "Was ein mobiles Prüflabor",
+    },
+    description: {
+      en: "Can Tell You Before You Ever Specify a Product",
+      de: "Ihnen sagen kann, bevor Sie ein Produkt ausschreiben",
+    },
   },
   {
     slug: "diagnosing-recurring-tile-debonding",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
-    title: "Diagnosing a Recurring Tile Debonding Issue",
-    description: "An On-Site Quality Audit Walkthrough",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    title: {
+      en: "Diagnosing a Recurring Tile Debonding Issue",
+      de: "Wiederkehrende Fliesenablösungen diagnostizieren",
+    },
+    description: {
+      en: "An On-Site Quality Audit Walkthrough",
+      de: "Ein Überblick über eine Qualitätsprüfung vor Ort",
+    },
   },
 ];
 
@@ -92,7 +111,7 @@ function PillarIllustration({ type }) {
     return (
       <img
         className="service-pillar-art"
-        src="/media/pillar-product-bag.svg"
+        src="/services/pillar-product-bag.webp"
         alt=""
         aria-hidden="true"
       />
@@ -103,9 +122,10 @@ function PillarIllustration({ type }) {
     return (
       <img
         className="service-pillar-art service-pillar-art--call"
-        src="/media/pillar-technical-call.svg"
+        src="/services/pillar-technical-call.webp"
         alt=""
         aria-hidden="true"
+        style={{ opacity: 0.9 }}
       />
     );
   }
@@ -114,7 +134,7 @@ function PillarIllustration({ type }) {
     return (
       <img
         className="service-pillar-art service-pillar-art--quality"
-        src="/media/pillar-onsite-quality.svg"
+        src="/services/pillar-onsite-quality.webp"
         alt=""
         aria-hidden="true"
       />
@@ -125,7 +145,7 @@ function PillarIllustration({ type }) {
     return (
       <img
         className="service-pillar-art service-pillar-art--training"
-        src="/media/pillar-application-training.svg"
+        src="/services/pillar-application-training.webp"
         alt=""
         aria-hidden="true"
       />
@@ -181,14 +201,14 @@ export default function ServicesPage() {
             </div>
             <div className="service-blog__grid">
               {serviceBlogPosts.map((post) => (
-                <article className="service-blog-card" key={post.title}>
+                <article className="service-blog-card" key={post.slug}>
                   <div className="service-blog-card__image">
                     <img src={post.image} alt="" loading="lazy" decoding="async" />
                   </div>
                   <div className="service-blog-card__body">
-                    <h3>{post.title}</h3>
-                    <p>{post.description}</p>
-                    <a href={`/articles/${post.slug}`}>Read more</a>
+                    <h3>{post.title[locale]}</h3>
+                    <p>{post.description[locale]}</p>
+                    <a href={`/articles/${post.slug}`}>{locale === "de" ? "Weiterlesen" : "Read more"}</a>
                   </div>
                 </article>
               ))}

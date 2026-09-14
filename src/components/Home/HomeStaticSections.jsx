@@ -6,12 +6,12 @@ import "./HomePage.css";
 const homeCopy = {
   en: {
     standardsLead: "Excellence",
-    standardsTail: "through stringent quality standards.",
+    standardsTail: "through stringent quality standards",
     certificationLogo: "certification logo",
   },
   de: {
     standardsLead: "Exzellenz",
-    standardsTail: "durch strenge Qualitätsstandards.",
+    standardsTail: "durch strenge Qualitätsstandards",
     certificationLogo: "Zertifizierungslogo",
   },
 };

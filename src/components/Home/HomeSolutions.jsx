@@ -26,7 +26,14 @@ const homeCopy = {
   },
 };
 
-const solutionIcons = [HeartPulse, Hotel, Construction, Building2, Store, Anchor];
+const solutionImages = {
+  "Healthcare": "/solutions/healthcare.webp",
+  "Hospitality": "/solutions/hospitality.webp",
+  "Infrastructure": "/solutions/infrastructure.webp",
+  "Residential high-rises": "/solutions/residential_high_rises.webp",
+  "Retail & restaurants": "/solutions/retail_and_restaurants.webp",
+  "Marine": "/solutions/marine.webp",
+};
 
 export default function HomeSolutions() {
   const { locale } = useLocale();
@@ -42,12 +49,10 @@ export default function HomeSolutions() {
         </div>
 
         <div className="home-solutions__grid">
-          {solutionIcons.map((Icon, index) => {
-            const label = copy.solutions[index];
+          {Object.entries(solutionImages).map(([label, src]) => {
             return (
               <article className="home-solutions__item" key={label}>
-                <Icon aria-hidden="true" strokeWidth={1.35} />
-                <h3>{label}</h3>
+                <img src={src} alt={label} />
               </article>
             );
           })}

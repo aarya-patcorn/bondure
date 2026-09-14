@@ -72,10 +72,10 @@ export const TOOLS = [
   
   {
     id: "grout",
-    category: "tile-cleaner",
+    category: "grout",
     title: "Grout Coverage",
-    copy: "Concentrate litres from area and dilution rate.",
-    illustration: "/tools/tool-tile-cleaner.png",
+    copy: "Estimate grout from tile size, joints, and area.",
+    illustration: "/tools/tool-grout.png",
   },
   {
     id: "cleaner",
@@ -234,6 +234,23 @@ export function aacBags({ productId, areaSqFt, jointMm, waste = WASTE_FACTOR }) 
     product,
     coverageSqFtPerBag: Math.round(coverageSqFtPerBag * 10) / 10,
     bags: Math.ceil((areaSqFt * waste) / coverageSqFtPerBag),
+    areaSqFt,
+    jointMm,
+    wastePercent: Math.round((waste - 1) * 100),
+  };
+}
+
+export function groutBags({ productId, areaSqFt, tileLMm, tileWMm, jointMm, depthMm, waste = WASTE_FACTOR }) {
+  const product = getProduct(productId);
+  if (!product || product.category !== "grout") return null;
+
+  const groutKgPerSqM = ((tileLMm + tileWMm) / (tileLMm * tileWMm)) * jointMm * depthMm * product.densityKgPerL;
+  const kg = areaSqFt * 0.092903 * groutKgPerSqM * waste;
+
+  return {
+    product,
+    kg: Math.round(kg * 100) / 100,
+    bags: Math.ceil(kg / product.bagKg),
     areaSqFt,
     jointMm,
     wastePercent: Math.round((waste - 1) * 100),
@@ -424,6 +441,7 @@ const DE_CATEGORY_COPY = {
 const DE_TOOL_COPY = {
   adhesive: ["Fliesenkleber-Verbrauch", "Sackanzahl anhand von Bodenfläche und Kleberbettdicke schätzen."],
   aac: ["Porenbeton-Fugenmörtel-Rechner", "Sackanzahl für Dünnbettmörtel bei Wänden aus Porenbetonsteinen."],
+  grout: ["Fugenmörtel-Verbrauch", "Benötigte Fugenmörtelmenge anhand von Fliesenformat, Fugen und Fläche schätzen."],
   screed: ["Bodenestrich-Ergiebigkeit", "Sackanzahl anhand von Bodenfläche und Estrichdicke berechnen."],
   plaster: ["Putz-Verbrauch", "Sackanzahl anhand von Wandfläche und Schichtdicke berechnen."],
   cleaner: ["Fliesenreiniger-Dosierung", "Konzentratmenge in Litern anhand von Fläche und Verdünnung berechnen."],
@@ -465,7 +483,9 @@ export function getLocalizedCategories(locale = "en") {
 export function getLocalizedTools(locale = "en") {
   if (locale !== "de") return TOOLS;
   return TOOLS.map((tool) => {
-    const [title, copy] = DE_TOOL_COPY[tool.id];
+    const localizedCopy = DE_TOOL_COPY[tool.id];
+    if (!localizedCopy) return tool;
+    const [title, copy] = localizedCopy;
     return { ...tool, title, copy };
   });
 }

@@ -4,7 +4,7 @@
   min-height: min(42rem, 88vh);
   margin: clamp(3rem, 7vw, 7rem) 1rem;
   overflow: hidden;
-  border-radius: 2rem;
+  border-radius: 10px;
   background: var(--base-450);
 }
 

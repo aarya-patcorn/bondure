@@ -124,7 +124,7 @@ export default function Spotlight({ includeMobileUnit = true }) {
                 ))}
               </ul>
               {experience.tourLabel && (
-                <a className="spotlight-tour-link" href="https://kuula.co/share/Lq1g7?logo=0&info=1&fs=1&vr=0&sd=1&thumbs=1" target="_blank" rel="noreferrer">
+                <a className="spotlight-tour-link" href="/experience">
                   <span className="spotlight-tour-link__icon spotlight-tour-link__icon--360" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none">
                       <path d="M12 4.5a7.5 7.5 0 1 1-5.3 2.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />

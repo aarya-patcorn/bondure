@@ -62,21 +62,21 @@ const supportChannels = [
   {
     id: "technical",
     titleKey: "contactSupportTechnicalTitle",
-    illustration: "/media/technical-support.svg",
+    illustration: "/services/pillar-technical-call.webp",
     href: "mailto:tech@bondure.com",
     detail: "tech@bondure.com",
   },
   {
     id: "general",
     titleKey: "contactSupportGeneralTitle",
-    illustration: "/media/general-query.svg",
+    illustration: "/media/general-query.webp",
     href: "mailto:contactus@bondure.com",
     detail: "contactus@bondure.com",
   },
   {
     id: "sales",
     titleKey: "contactSupportSalesTitle",
-    illustration: "/media/contact-sales-illustration.png",
+    illustration: "/media/contact-sales-illustration.webp",
     href: "tel:+912266668888",
   },
 ];
@@ -227,8 +227,8 @@ export default function ContactPage() {
                   <h2>{t(channel.titleKey)}</h2>
                   {channel.id === "sales" ? (
                     <div className="contact-support__phones">
-                      <a href="tel:+912266668888">{t("contactSalesPhoneIndia")}</a>
                       <a href="tel:+496131666688">{t("contactSalesPhoneGermany")}</a>
+                      <a href="tel:+912266668888">{t("contactSalesPhoneIndia")}</a>
                     </div>
                   ) : (
                     <a className="contact-support__link" href={channel.href}>

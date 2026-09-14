@@ -31,24 +31,41 @@ const TOOLS_GLOW = "89, 22, 24";
 
 const toolsBlogPosts = [
   {
+    slug: "under-ordering-tile-adhesive",
     image: "/blog/real-cost.webp",
-    title: "The Real Cost of Under-Ordering Tile Adhesive",
-    description: "A Specifier's Guide to Accurate Coverage Calculations",
+    title: {
+      en: "The Real Cost of Under-Ordering Tile Adhesive",
+      de: "Die tatsächlichen Kosten einer zu gering bestellten Fliesenklebermenge",
+    },
+    description: {
+      en: "A Specifier's Guide to Accurate Coverage Calculations",
+      de: "Ein Leitfaden für Planer zur präzisen Verbrauchsberechnung",
+    },
   },
   {
+    slug: "floor-screed-estimation",
     image: "/blog/screed-estimation.webp",
-    title: "Floor Screed Estimation",
-    description: "Getting Thickness and Coverage Right Before the Pour",
+    title: {
+      en: "Floor Screed Estimation",
+      de: "Bodenestrich-Berechnung",
+    },
+    description: {
+      en: "Getting Thickness and Coverage Right Before the Pour",
+      de: "Dicke und Materialverbrauch vor dem Einbau korrekt berechnen",
+    },
   },
   {
-    image: "/blog/sustainability.webp",
-    title: "Sustainability in Construction Chemicals",
-    description: "Measuring What Actually Matters",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
-    title: "Case study",
-    description: "How Accurate Material Estimation Prevented a Mid-Project Stoppage on a High-Rise Residential Tower",
+    slug: "high-rise-material-estimation",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
+    title: {
+      en: "Case study",
+      de: "Fallstudie",
+    },
+    description: {
+      en: "How Accurate Material Estimation Prevented a Mid-Project Stoppage on a High-Rise Residential Tower",
+      de: "Wie eine präzise Materialberechnung einen Baustopp bei einem Wohnhochhaus verhinderte",
+    },
   },
 ];
 
@@ -495,112 +512,112 @@ function CalculatorPanel({ toolId, onHome, onContact }) {
           />
 
           <div className="tools-panel__content">
-        {step === 0 && (
-          <div className="tools-step is-active">
-            <div className="tools-field">
-              <label>{localize(locale, "Select product")}</label>
-              <div className="tools-product-grid" role="radiogroup" aria-label={localize(locale, "Select product")}>
-                {products.map((product) => {
-                  const isSelected = product.id === productId;
+            {step === 0 && (
+              <div className="tools-step is-active">
+                <div className="tools-field">
+                  <label>{localize(locale, "Select product")}</label>
+                  <div className="tools-product-grid" role="radiogroup" aria-label={localize(locale, "Select product")}>
+                    {products.map((product) => {
+                      const isSelected = product.id === productId;
 
-                  return (
-                    <button
-                      key={product.id}
-                      type="button"
-                      role="radio"
-                      aria-checked={isSelected}
-                      className={`tools-product-option${isSelected ? " is-active" : ""}`}
-                      onClick={() => setProductId(product.id)}
-                    >
-                      <span className="tools-product-option__check" aria-hidden="true">
-                        {isSelected ? <span className="tools-product-option__check-mark">✓</span> : null}
-                      </span>
-                      <ProductMedia product={product} className="tools-product-option__swatch" />
-                      <span className="tools-product-option__copy">
-                        <strong>{product.name}</strong>
-                        <span className="tools-product-option__meta">{productMeta(product, locale)}</span>
-                      </span>
-                    </button>
-                  );
-                })}
+                      return (
+                        <button
+                          key={product.id}
+                          type="button"
+                          role="radio"
+                          aria-checked={isSelected}
+                          className={`tools-product-option${isSelected ? " is-active" : ""}`}
+                          onClick={() => setProductId(product.id)}
+                        >
+                          <span className="tools-product-option__check" aria-hidden="true">
+                            {isSelected ? <span className="tools-product-option__check-mark">✓</span> : null}
+                          </span>
+                          <ProductMedia product={product} className="tools-product-option__swatch" />
+                          <span className="tools-product-option__copy">
+                            <strong>{product.name}</strong>
+                            <span className="tools-product-option__meta">{productMeta(product, locale)}</span>
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="tools-actions">
+                  <button type="button" className="tools-btn tools-btn--primary" onClick={() => setStep(1)}>
+                    {localize(locale, "Next")}
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="tools-actions">
-              <button type="button" className="tools-btn tools-btn--primary" onClick={() => setStep(1)}>
-                {localize(locale, "Next")}
-              </button>
-            </div>
-          </div>
-        )}
+            )}
 
-        {step === 1 && (
-          <div className="tools-step is-active">
-            {config.rows.map((row) => (
-              <div key={row.join("-")} className={row.length > 1 ? "tools-field-row" : undefined}>
-                {row.map((fieldId) => {
-                  const field = config.fields.find((item) => item.id === fieldId);
-                  return (
-                    <div className="tools-field" key={field.id}>
-                      <label htmlFor={`tools-${toolId}-${field.id}`}>{field.label}</label>
-                      <input
-                        id={`tools-${toolId}-${field.id}`}
-                        type="number"
-                        min={field.min}
-                        step={field.step}
-                        value={values[field.id]}
-                        onChange={(event) =>
-                          setValues((current) => ({ ...current, [field.id]: event.target.value }))
-                        }
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-            <div className="tools-actions">
-              <button type="button" className="tools-btn tools-btn--ghost" onClick={() => setStep(0)}>
-                {localize(locale, "Back")}
-              </button>
-              <button type="button" className="tools-btn tools-btn--primary" onClick={calculate}>
-                {localize(locale, "Calculate")}
-              </button>
-            </div>
-          </div>
-        )}
-
-        {step === 2 && formatted && (
-          <div className="tools-step is-active">
-            <div className="tools-results">
-              <p className="tools-results__metric">
-                {formatted.metric}
-                <small>{formatted.unit}</small>
-              </p>
-              <p className="tools-results__label">{formatted.label}</p>
-              <ul className="tools-results__list">
-                {formatted.rows.map((row) => (
-                  <li key={row.label}>
-                    <span>{row.label}</span>
-                    <strong>{row.value}</strong>
-                  </li>
+            {step === 1 && (
+              <div className="tools-step is-active">
+                {config.rows.map((row) => (
+                  <div key={row.join("-")} className={row.length > 1 ? "tools-field-row" : undefined}>
+                    {row.map((fieldId) => {
+                      const field = config.fields.find((item) => item.id === fieldId);
+                      return (
+                        <div className="tools-field" key={field.id}>
+                          <label htmlFor={`tools-${toolId}-${field.id}`}>{field.label}</label>
+                          <input
+                            id={`tools-${toolId}-${field.id}`}
+                            type="number"
+                            min={field.min}
+                            step={field.step}
+                            value={values[field.id]}
+                            onChange={(event) =>
+                              setValues((current) => ({ ...current, [field.id]: event.target.value }))
+                            }
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 ))}
-              </ul>
-              <div className="tools-actions">
-                <button type="button" className="tools-btn tools-btn--primary" onClick={onContact}>
-                  {localize(locale, "Contact sales")}
-                </button>
-                <button type="button" className="tools-btn tools-btn--ghost" onClick={restart}>
-                  {localize(locale, "Restart")}
-                </button>
+                <div className="tools-actions">
+                  <button type="button" className="tools-btn tools-btn--ghost" onClick={() => setStep(0)}>
+                    {localize(locale, "Back")}
+                  </button>
+                  <button type="button" className="tools-btn tools-btn--primary" onClick={calculate}>
+                    {localize(locale, "Calculate")}
+                  </button>
+                </div>
               </div>
-            </div>
-            <p className="tools-disclaimer">{getLocalizedDisclaimer(locale)}</p>
-            <div className="tools-actions" style={{ marginTop: "1rem" }}>
-              <button type="button" className="tools-btn tools-btn--ghost" onClick={() => setStep(1)}>
-                {localize(locale, "Back")}
-              </button>
-            </div>
-          </div>
-        )}
+            )}
+
+            {step === 2 && formatted && (
+              <div className="tools-step is-active">
+                <div className="tools-results">
+                  <p className="tools-results__metric">
+                    {formatted.metric}
+                    <small>{formatted.unit}</small>
+                  </p>
+                  <p className="tools-results__label">{formatted.label}</p>
+                  <ul className="tools-results__list">
+                    {formatted.rows.map((row) => (
+                      <li key={row.label}>
+                        <span>{row.label}</span>
+                        <strong>{row.value}</strong>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="tools-actions">
+                    <button type="button" className="tools-btn tools-btn--primary" onClick={onContact}>
+                      {localize(locale, "Contact sales")}
+                    </button>
+                    <button type="button" className="tools-btn tools-btn--ghost" onClick={restart}>
+                      {localize(locale, "Restart")}
+                    </button>
+                  </div>
+                </div>
+                <p className="tools-disclaimer">{getLocalizedDisclaimer(locale)}</p>
+                <div className="tools-actions" style={{ marginTop: "1rem" }}>
+                  <button type="button" className="tools-btn tools-btn--ghost" onClick={() => setStep(1)}>
+                    {localize(locale, "Back")}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -856,14 +873,14 @@ export default function ToolsPage() {
             </div>
             <div className="tools-blog__grid">
               {toolsBlogPosts.map((post) => (
-                <article className="tools-blog-card" key={post.title}>
+                <article className="tools-blog-card" key={post.slug}>
                   <div className="tools-blog-card__image">
                     <img src={post.image} alt="" loading="lazy" decoding="async" />
                   </div>
                   <div className="tools-blog-card__body">
-                    <h3>{post.title}</h3>
-                    <p>{post.description}</p>
-                    <a href="/tools#blog">Read more</a>
+                    <h3>{post.title[locale]}</h3>
+                    <p>{post.description[locale]}</p>
+                    <a href={`/articles/${post.slug}`}>{locale === "de" ? "Weiterlesen" : "Read more"}</a>
                   </div>
                 </article>
               ))}

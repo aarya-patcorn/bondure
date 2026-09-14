@@ -132,7 +132,7 @@
 .rd-development-image {
   margin: 0;
   border-radius: 1rem;
-  background: var(--base-450);
+  /* background: var(--base-450); */
 }
 
 .rd-development-image img {
@@ -257,7 +257,7 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #d5c8bb;
-  border-radius: 1rem;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 .75rem 2rem rgba(35, 27, 28, .08);
 }

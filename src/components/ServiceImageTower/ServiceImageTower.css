@@ -21,11 +21,11 @@
 
 .service-image-tower-heading p {
   color: var(--base-100);
-  font-family: var(--font-crimson-pro), serif;
+  font-family: var(--font-crimson-pro), serif !important;
   font-size: clamp(3.5rem, 7.4vw, 9rem);
   font-weight: 450;
   line-height: .88;
-  letter-spacing: -.055em;
+  /* letter-spacing: .055em;   */
   text-wrap: balance;
   animation: service-statement-in .7s cubic-bezier(.22, 1, .36, 1) both;
 }
