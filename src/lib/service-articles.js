@@ -866,10 +866,10 @@ export const toolArticles = {
 };
 
 export const rdArticles = {
-  "inside-700000-tests": {
+  "inside-759000-tests": {
     title: {
-      en: "Inside 700,000+ Tests: What Rigorous Product Validation Actually Looks Like",
-      de: "Ein Blick hinter 700.000+ Prüfungen: Wie eine rigorose Produktvalidierung tatsächlich aussieht",
+      en: "Inside 759,000+ Tests: What Rigorous Product Validation Actually Looks Like",
+      de: "Ein Blick hinter 759.000+ Prüfungen: Wie eine rigorose Produktvalidierung tatsächlich aussieht",
     },
     summary: {
       en: "A performance figure is only the visible summary of the many conditions tested behind it.",
@@ -888,8 +888,8 @@ export const rdArticles = {
             de: "Ein technisches Datenblatt reduziert eine Rezeptur auf eine Handvoll Werte: Haftzugfestigkeit in N/mm², offene Zeit in Minuten, Rutschfestigkeit unter Last. Diese Zahlen wirken einfach, weil sie auf einen Blick nutzbar sein sollen — doch jede einzelne steht für einen Prüfprozess, der erheblich weniger einfach ist, als der Endwert vermuten lässt, durchgeführt und wiederholt über Variablen hinweg, die die meisten Planer nie dokumentiert zu sehen bekommen.",
           },
           {
-            en: "Bondure's testing volume — more than 700,000 tests to date — isn't a marketing statistic so much as a reflection of what genuine formulation validation actually requires, run across raw materials, environmental conditions, and application scenarios before a product reaches a site.",
-            de: "Bondures Prüfvolumen — bis heute mehr als 700.000 Prüfungen — ist weniger eine Marketingstatistik als vielmehr ein Spiegel dessen, was eine echte Rezepturvalidierung tatsächlich erfordert, durchgeführt über Rohstoffe, Umgebungsbedingungen und Verarbeitungsszenarien hinweg, bevor ein Produkt eine Baustelle erreicht.",
+            en: "Bondure's testing volume — more than 759,000 tests to date — isn't a marketing statistic so much as a reflection of what genuine formulation validation actually requires, run across raw materials, environmental conditions, and application scenarios before a product reaches a site.",
+            de: "Bondures Prüfvolumen — bis heute mehr als 759.000 Prüfungen — ist weniger eine Marketingstatistik als vielmehr ein Spiegel dessen, was eine echte Rezepturvalidierung tatsächlich erfordert, durchgeführt über Rohstoffe, Umgebungsbedingungen und Verarbeitungsszenarien hinweg, bevor ein Produkt eine Baustelle erreicht.",
           },
         ],
       },

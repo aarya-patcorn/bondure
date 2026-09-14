@@ -21,12 +21,12 @@ const RD_PEOPLE_GLOW = "89, 22, 24";
 
 const blogPosts = [
   {
-    slug: "inside-700000-tests",
+    slug: "inside-759000-tests",
     image:
       "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=85",
     title: {
-      en: "Inside 700,000+ Tests",
-      de: "Einblick in über 700.000 Tests",
+      en: "Inside 759,000+ Tests",
+      de: "Einblick in über 759.000 Tests",
     },
     description: {
       en: "What Rigorous Product Validation Actually Looks Like",
