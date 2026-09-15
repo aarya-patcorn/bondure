@@ -28,9 +28,9 @@ export default function VideoExperience({ videos }) {
   return (
     <section className="video-experience" aria-labelledby="video-experience-title">
 
-      <header className="video-experience__header">
+      {/* <header className="video-experience__header">
         <h2 id="video-experience-title">"Click and explore our experience center"</h2>
-      </header>
+      </header> */}
 
       <div className="video-experience__grid">
         {videos.map((video, index) => (
@@ -42,8 +42,7 @@ export default function VideoExperience({ videos }) {
             aria-label={`Play ${video.title}`}
           >
             <video src={video.src} muted playsInline preload="metadata" aria-hidden="true" />
-            <span className="video-experience__card-shade" aria-hidden="true" />
-            <span className="video-experience__label">{video.title}</span>
+            {/* <span className="video-experience__card-shade" aria-hid/den="true" /> */}
           </button>
         ))}
       </div>

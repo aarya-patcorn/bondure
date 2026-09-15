@@ -1,11 +1,11 @@
 .video-experience {
     min-height: 100svh;
-    padding: calc(var(--site-chrome-height) + clamp(3rem, 3vw, 6rem)) clamp(1.25rem, 6vw, 4rem) clamp(4rem, 7vw, 8rem);
+    padding: calc(var(--site-chrome-height) + clamp(0rem, 0vw, 1rem)) 0 clamp(4rem, 7vw, 8rem);
     background: var(--base-500);
 }
 
 .video-experience__header {
-    width: min(100%, 76rem);
+    width: min(100%, 88rem);
     margin: 0 auto clamp(2.2rem, 3vw, 2rem);
     text-align: center;
 }
@@ -19,12 +19,12 @@
     text-transform: uppercase;
 }
 
-.video-experience__header h1 {
-    max-width: 12ch;
+.video-experience__header h2 {
     margin: 0;
-    font-size: clamp(3rem, 6vw, 6.5rem);
-    line-height: .9;
-    letter-spacing: -.065em;
+    color: var(--ink-500, #251c1d);
+    font-size: clamp(2.2rem, 4vw, 4.8rem);
+    line-height: .98;
+    letter-spacing: -.055em;
 }
 
 .video-experience__header>span {
@@ -38,18 +38,16 @@
 
 .video-experience__grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: min(100%, 76rem);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
     margin: 0 auto;
-    gap: clamp(.75rem, 1.8vw, 1.5rem);
 }
 
 .video-experience__card {
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
     overflow: hidden;
     border: 0;
-    border-radius: 1rem;
     background: var(--base-200);
     color: #fff;
     cursor: pointer;
@@ -158,7 +156,7 @@
 
 .video-experience__dialog {
     position: relative;
-    width: min(92vw, 78rem);
+    width: min(92vw, 29rem);
     outline: 0;
     animation: video-experience-zoom .42s cubic-bezier(.22, 1, .36, 1) both;
 }
@@ -166,9 +164,10 @@
 .video-experience__dialog video {
     display: block;
     width: 100%;
-    max-height: calc(100svh - 8rem);
+    max-height: calc(100svh - 2.5rem);
     border-radius: 1rem;
     background: #000;
+    object-fit: contain;
 }
 
 @keyframes video-experience-fade {
@@ -193,6 +192,14 @@
     }
 }
 
+@media (max-width: 1050px) {
+    .video-experience__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 42rem);
+    }
+
+}
+
 @media (max-width: 700px) {
     .video-experience {
         padding-right: 1rem;
@@ -201,11 +208,9 @@
 
     .video-experience__grid {
         grid-template-columns: 1fr;
+        width: min(100%, 21rem);
     }
 
-    .video-experience__header h1 {
-        max-width: 10ch;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -23,7 +23,7 @@ const blogPosts = [
   {
     slug: "inside-759000-tests",
     image:
-      "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=85",
+      "/blog/inside-759000-tests.webp",
     title: {
       en: "Inside 759,000+ Tests",
       de: "Einblick in über 759.000 Tests",
