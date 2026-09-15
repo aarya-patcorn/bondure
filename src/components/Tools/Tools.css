@@ -331,7 +331,7 @@
 .tools-panel {
   display: none;
   min-height: calc(100svh - 9rem);
-  padding: clamp(9.5rem, 14vw, 11rem) clamp(1.25rem, 3vw, 2.5rem) 2rem;
+  padding: clamp(9.5rem, 14vw, 11rem) clamp(1.25rem, 4vw, 3rem) 2rem;
 }
 
 .tools-panel.is-active {

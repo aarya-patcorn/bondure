@@ -1,5 +1,5 @@
 .rd-page {
-  --rd-section-block: clamp(2.5rem, 5vw, 4.5rem);
+  --rd-section-block: clamp(5.5rem, 8vw, 4.5rem);
   --rd-section-inline: clamp(1.25rem, 4vw, 3rem);
   position: relative;
   color: var(--base-100);
@@ -7,8 +7,21 @@
 }
 
 .rd-page .container {
-  max-width: 88rem;
+  max-width: none;
   padding: 0;
+}
+
+.rd-page .home-standards__inner,
+.rd-network > .container,
+.rd-people > .container,
+.rd-development > .container,
+.rd-blog > .container {
+  max-width: none;
+}
+
+.rd-page .home-standards,
+.rd-page .cta-window {
+  padding-inline: var(--rd-section-inline);
 }
 
 .rd-page h2 {
@@ -78,7 +91,7 @@
 .rd-people-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 82rem;
+  max-width: none;
   gap: 1rem;
   margin: 0 auto;
 }
@@ -110,6 +123,10 @@
 .rd-development {
   padding: var(--rd-section-block) var(--rd-section-inline);
   border-top: 1px solid var(--base-450);
+}
+
+.rd-development > .container {
+  max-width: none;
 }
 
 .rd-development-header {
@@ -223,6 +240,10 @@
   color: #401315;
 }
 
+.rd-blog > .container {
+  max-width: none;
+}
+
 .rd-blog-heading {
   display: flex;
   align-items: end;
@@ -246,7 +267,7 @@
 
 .rd-blog-grid {
   display: grid;
-  max-width: 78rem;
+  max-width: none;
   margin: 0 auto;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);

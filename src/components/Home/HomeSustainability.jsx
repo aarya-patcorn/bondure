@@ -8,7 +8,7 @@ import "./HomePage.css";
 const sustainabilityCopy = {
   en: {
     titleLead: "Sustainability",
-    titleTail: "built to perform.",
+    titleTail: "built to perform",
     pillars: [
       ["Measure what matters", "We are building a clearer picture of product and operational impact so progress can be tracked and explained."],
       ["Make every mix count", "Reliable application helps reduce avoidable rework, material loss and premature replacement on working sites."],

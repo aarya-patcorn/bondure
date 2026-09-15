@@ -19,16 +19,16 @@ const heroCopy = {
   en: {
     title: "The Science of Bonding",
     mutedLines: [
-      "Decades of formulation expertise, built into every bag.",
-      "Consistent performance, batch after batch.",
+      "Decades of formulation expertise, built into every bag",
+      "Consistent performance, batch after batch",
     ],
     cta: "Book free site visit",
   },
   de: {
     title: "Die Wissenschaft des Haftens",
     mutedLines: [
-      "Jahrzehntelange Rezepturkompetenz, in jedem Sack.",
-      "Konstante Leistung, Charge für Charge.",
+      "Jahrzehntelange Rezepturkompetenz, in jedem Sack",
+      "Konstante Leistung, Charge für Charge",
     ],
     cta: "Kostenlosen Standortbesuch buchen",
   },

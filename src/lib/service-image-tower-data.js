@@ -7,8 +7,8 @@ export const serviceImageTowerSlides = [
       de: "Technik-Team von Bondure prüft Baustellenbedingungen auf einem Bauprojekt",
     },
     statement: {
-      en: "Spot risks early.",
-      de: "Risiken früh erkennen.",
+      en: "Spot risks early",
+      de: "Risiken früh erkennen",
     },
   },
   {
@@ -19,8 +19,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure-Spezialist prüft Material und Untergrundqualität vor Ort",
     },
     statement: {
-      en: "Clear site guidance.",
-      de: "Klare Beratung vor Ort.",
+      en: "Clear site guidance",
+      de: "Klare Beratung vor Ort",
     },
   },
   {
@@ -31,8 +31,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure Fliesenkleber-Produkt, empfohlen für die Projektanforderungen",
     },
     statement: {
-      en: "Recommendations for your project.",
-      de: "Empfehlungen für Ihr Projekt.",
+      en: "Recommendations for your project",
+      de: "Empfehlungen für Ihr Projekt",
     },
   },
   {
@@ -43,8 +43,8 @@ export const serviceImageTowerSlides = [
       de: "Technischer Support von Bondure bei der Unterstützung auf der Baustelle",
     },
     statement: {
-      en: "Support beyond delivery.",
-      de: "Support über die Lieferung hinaus.",
+      en: "Support beyond delivery",
+      de: "Support über die Lieferung hinaus",
     },
   },
   {
@@ -55,8 +55,8 @@ export const serviceImageTowerSlides = [
       de: "Technik-Team von Bondure demonstriert die Anwendungstechnik bei einer Schulung vor Ort",
     },
     statement: {
-      en: "Train every crew.",
-      de: "Jedes Team praxisnah schulen.",
+      en: "Train every crew",
+      de: "Jedes Team praxisnah schulen",
     },
   },
   {
@@ -67,8 +67,8 @@ export const serviceImageTowerSlides = [
       de: "Mobile technische Einheit von Bondure auf dem Weg zur Baustelle",
     },
     statement: {
-      en: "Lab expertise on-site.",
-      de: "Laborkompetenz direkt vor Ort.",
+      en: "Lab expertise on-site",
+      de: "Laborkompetenz direkt vor Ort",
     },
   },
   {
@@ -79,8 +79,8 @@ export const serviceImageTowerSlides = [
       de: "Mobiles Labor von Bondure führt Live-Experimente zur Produktleistung vor Ort durch",
     },
     statement: {
-      en: "See performance live.",
-      de: "Leistung live erleben.",
+      en: "See performance live",
+      de: "Leistung live erleben",
     },
   },
   {
@@ -91,8 +91,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure-Team vergleicht Produktleistungen direkt nebeneinander vor Ort",
     },
     statement: {
-      en: "Compare results clearly.",
-      de: "Ergebnisse klar vergleichen.",
+      en: "Compare results clearly",
+      de: "Ergebnisse klar vergleichen",
     },
   },
   {
@@ -103,8 +103,8 @@ export const serviceImageTowerSlides = [
       de: "Bondure Material-Erlebniszentrum mit praxisnahen Anwendungsvorführungen",
     },
     statement: {
-      en: "Expertise closer to you.",
-      de: "Expertise näher bei Ihnen.",
+      en: "Expertise closer to you",
+      de: "Expertise näher bei Ihnen",
     },
   },
 ];

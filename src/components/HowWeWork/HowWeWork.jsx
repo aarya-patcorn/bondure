@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const copy = {
   en: {
-    heading: "How our technical support team can help you.",
+    heading: "How our technical support team can help you",
     stagesLabel: "Bondure process stages",
     stageLabels: ["Assess", "Balance", "Refine", "Support"],
     supportStages: [
@@ -45,7 +45,7 @@ const copy = {
     ],
   },
   de: {
-    heading: "So unterstützt Sie unser Technik-Team.",
+    heading: "So unterstützt Sie unser Technik-Team",
     stagesLabel: "Prozessphasen von Bondure",
     stageLabels: ["Bewerten", "Abstimmen", "Optimieren", "Unterstützen"],
     supportStages: [

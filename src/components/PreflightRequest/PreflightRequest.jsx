@@ -9,7 +9,7 @@ import "./PreflightRequest.css";
 const content = {
   en: {
     eyebrow: "Preflight request",
-    title: "The lab on wheels.",
+    title: "The lab on wheels",
     description: "Our mobile technical unit brings testing, demonstrations, and direct product comparison into the conditions where your team actually works.",
     points: [
       "Live on-site experiments with 100% transparent methods",
@@ -21,7 +21,7 @@ const content = {
   },
   de: {
     eyebrow: "Vorabprüfung anfragen",
-    title: "Das Labor auf Rädern.",
+    title: "Das Labor auf Rädern",
     description: "Unsere mobile technische Einheit bringt Prüfungen, Vorführungen und direkte Produktvergleiche dorthin, wo Ihr Team tatsächlich arbeitet.",
     points: [
       "Live-Experimente vor Ort mit vollständig transparenten Methoden",

@@ -36,9 +36,9 @@ const blogPosts = [
   {
     slug: "adhesive-classification-standards",
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+      "/blog/adhesive-classification-standards.webp",
     title: {
-      en: "C2, TE, S1, S2:",
+      en: "Adhesive classification standards",
       de: "C2, TE, S1, S2:",
     },
     description: {
@@ -49,7 +49,7 @@ const blogPosts = [
   {
     slug: "sustainability-construction-chemicals",
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+      "/blog/sustainability-construction-chemicals.webp",
     title: {
       en: "Sustainability in Construction Chemicals",
       de: "Nachhaltigkeit bei Bauchemikalien",
@@ -107,8 +107,8 @@ const copy = {
     },
     partnershipsHeading: "Research partnerships",
     partnershipsImageAlt: "Bondure research partnerships with IIT Bombay and MPA University of Stuttgart",
-    peopleHeading: "One shared standard.",
-    peopleDescription: "Research. Application. Verification.",
+    peopleHeading: "One shared standard",
+    peopleDescription: "Research. Application. Verification",
     researchRoles: [
       {
         title: "Materials research",
@@ -130,7 +130,7 @@ const copy = {
       },
     ],
     developmentHeading: "From lab to site",
-    developmentDescription: "Evidence guides every release.",
+    developmentDescription: "Evidence guides every release",
     developmentAlt: "Engineer reviewing technical work in an industrial setting",
     developmentStepperLabel: "Research and development process",
     developmentSteps: [
@@ -149,7 +149,9 @@ const copy = {
       ["Conditioning results", "Every change compared.", "/home-media/conditioning-results-illustration.svg"],
       ["Field reports", "Every application observed.", "/home-media/field-reports-illustration.svg"],
     ],
-    ctaHeading: "The science of bonding.",
+    blogHeading: "From the lab and field",
+    blogDescription: "Practical notes from the work behind every Bondure release",
+    ctaHeading: "The science of bonding",
   },
   de: {
     hero: {
@@ -160,20 +162,20 @@ const copy = {
       ctaHref: "/connect",
       imageAlt: "Bondure F&E-Prozessdiagramm mit Baustellenanwendung, modifiziertem QSPR-Modell, computergestützten Werkzeugen, automatisierten Fabriken, Labor- und Feldvalidierung sowie Einsatz und kontinuierlicher Verbesserung",
     },
-    partnershipsHeading: "Forschungspartnerschaften.",
+    partnershipsHeading: "Forschungspartnerschaften",
     partnershipsImageAlt: "Bondure Forschungspartnerschaften mit IIT Bombay und der MPA Universität Stuttgart",
-    peopleHeading: "Ein gemeinsamer Standard.",
+    peopleHeading: "Ein gemeinsamer Standard",
     peopleDescription: "Forschung. Anwendung. Verifizierung.",
     researchRoles: [
       {
         title: "Materialforschung",
-        description: "Formulierung und Chemie.",
+        description: "Formulierung und Chemie",
         image: "/home-media/materials-research-lab.png",
         alt: "Pulverprobe eines Verbindungsmaterials in einem Materialprüflabor",
       },
       {
         title: "Anwendungstechnik",
-        description: "Anwendung und Untergründe.",
+        description: "Anwendung und Untergründe",
         image: "/home-media/site-testing.webp",
         alt: "Technischer Spezialist bei einer Prüfung auf der Baustelle",
       },
@@ -184,8 +186,8 @@ const copy = {
         alt: "Technisches Team prüft verklebte Blockproben auf einer Baustelle",
       },
     ],
-    developmentHeading: "Vom Labor zur Baustelle.",
-    developmentDescription: "Nachweise leiten jede Freigabe.",
+    developmentHeading: "Vom Labor zur Baustelle",
+    developmentDescription: "Nachweise leiten jede Freigabe",
     developmentAlt: "Ingenieur prüft technische Arbeiten in einer industriellen Umgebung",
     developmentStepperLabel: "Forschungs- und Entwicklungsprozess",
     developmentSteps: [
@@ -204,6 +206,8 @@ const copy = {
       ["Konditionierungsergebnisse", "Jede Änderung verglichen.", "/home-media/conditioning-results-illustration.svg"],
       ["Baustellenberichte", "Jede Anwendung beobachtet.", "/home-media/field-reports-illustration.svg"],
     ],
+    blogHeading: "Aus Labor und Praxis",
+    blogDescription: "Praxisnahe Einblicke in die Arbeit hinter jeder Bondure-Produkteinführung",
     ctaHeading: "Die Wissenschaft des Verbindens.",
   },
 };
@@ -363,8 +367,8 @@ export default function RDPage() {
         <section className="rd-blog" aria-labelledby="rd-blog-title">
           <div className="container">
             <div className="rd-blog-heading">
-              <h2 id="rd-blog-title">From the lab and field.</h2>
-              <p>Practical notes from the work behind every Bondure release.</p>
+              <h2 id="rd-blog-title">{content.blogHeading}</h2>
+              <p>{content.blogDescription}</p>
             </div>
             <div className="rd-blog-grid">
               {blogPosts.map((post) => (

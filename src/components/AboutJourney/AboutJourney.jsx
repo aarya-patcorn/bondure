@@ -23,7 +23,7 @@ const milestoneMedia = [
   },
   {
     period: "1980–1989",
-    image: "/about-history/1984-production.png",
+    image: "/about-history/1984-production.webp",
     position: "50% center",
   },
   {

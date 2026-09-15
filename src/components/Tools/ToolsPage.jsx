@@ -57,7 +57,7 @@ const toolsBlogPosts = [
   {
     slug: "high-rise-material-estimation",
     image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
+      "/blog/high-rise-material-estimation.webp",
     title: {
       en: "Case study",
       de: "Fallstudie",
@@ -68,6 +68,17 @@ const toolsBlogPosts = [
     },
   },
 ];
+
+const toolsBlogCopy = {
+  en: {
+    heading: "The BONDURE Journal",
+    description: "Practical guidance for better planning, coverage, and material decisions",
+  },
+  de: {
+    heading: "Das BONDURE Journal",
+    description: "Praxisnahe Hinweise für bessere Planung, Verbrauchsberechnung und Materialentscheidungen",
+  },
+};
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -868,8 +879,8 @@ export default function ToolsPage() {
         <section className="tools-blog" aria-labelledby="tools-blog-title">
           <div className="tools-blog__inner">
             <div className="tools-blog__heading">
-              <h2 id="tools-blog-title">The BONDURE Journal.</h2>
-              <p>Practical guidance for better planning, coverage, and material decisions.</p>
+              <h2 id="tools-blog-title">{toolsBlogCopy[locale].heading}</h2>
+              <p>{toolsBlogCopy[locale].description}</p>
             </div>
             <div className="tools-blog__grid">
               {toolsBlogPosts.map((post) => (

@@ -16,6 +16,8 @@ const copy = {
   en: {
     heading: "Our services",
     cta: "Explore our YouTube channel",
+    blogHeading: "From the site",
+    blogDescription: "Practical guidance for stronger applications and fewer site surprises.",
     pillars: [
       {
         key: "recommendation",
@@ -42,6 +44,8 @@ const copy = {
   de: {
     heading: "Unsere Services",
     cta: "Unseren YouTube-Kanal entdecken",
+    blogHeading: "Von der Baustelle",
+    blogDescription: "Praxisnahe Orientierung für zuverlässigere Anwendungen und weniger Überraschungen auf der Baustelle.",
     pillars: [
       {
         key: "recommendation",
@@ -94,8 +98,7 @@ const serviceBlogPosts = [
   },
   {
     slug: "diagnosing-recurring-tile-debonding",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    image: "/blog/diagnosis_a_recurring.webp",
     title: {
       en: "Diagnosing a Recurring Tile Debonding Issue",
       de: "Wiederkehrende Fliesenablösungen diagnostizieren",
@@ -184,8 +187,8 @@ export default function ServicesPage() {
         <section className="service-blog" aria-labelledby="service-blog-title">
           <div className="service-blog__inner">
             <div className="service-blog__heading">
-              <h2 id="service-blog-title">From the site.</h2>
-              <p>Practical guidance for stronger applications and fewer site surprises.</p>
+              <h2 id="service-blog-title">{content.blogHeading}</h2>
+              <p>{content.blogDescription}</p>
             </div>
             <div className="service-blog__grid">
               {serviceBlogPosts.map((post) => (

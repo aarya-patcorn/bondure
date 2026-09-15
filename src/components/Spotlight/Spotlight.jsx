@@ -8,7 +8,7 @@ import "./Spotlight.css";
 const experiences = {
   en: [
     {
-      title: "The lab on wheels.",
+      title: "The lab on wheels",
       description: "Our mobile technical unit brings testing, demonstrations, and direct product comparison into the conditions where your team actually works.",
       points: [
         "Live on-site experiments with 100% transparent methods",
@@ -20,7 +20,7 @@ const experiences = {
       type: "video",
     },
     {
-      title: "Visit our experience center.",
+      title: "Visit our experience center",
       description: "Visit a Bondure Experience Center in your city to explore full application systems, compare finishes, and discuss project conditions with our technical team.",
       points: [
         "Hands-on product and application demonstrations",
