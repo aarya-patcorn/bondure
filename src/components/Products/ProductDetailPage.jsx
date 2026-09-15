@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import gsap from "gsap";
 
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
 import { localizeProduct } from "@/lib/products-data";
@@ -12,30 +11,6 @@ import "@/app/products/scroll-demo/product-spec.css";
 import "@/app/products/scroll-demo/product-sections.css";
 import "@/app/products/scroll-demo/magic-bento.css";
 import "@/app/products/scroll-demo/products-scroll-overrides.css";
-
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const existing = document.querySelector(`script[src="${src}"]`);
-    if (existing?.dataset.loaded === "true") {
-      resolve();
-      return;
-    }
-    if (existing) {
-      existing.addEventListener("load", () => resolve(), { once: true });
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = true;
-    script.onload = () => {
-      script.dataset.loaded = "true";
-      resolve();
-    };
-    script.onerror = () => reject(new Error(`Failed to load ${src}`));
-    document.body.appendChild(script);
-  });
-}
 
 const INTRO_SECTIONS = [
   { id: "overview", label: "Overview" },
@@ -216,35 +191,7 @@ function ProductDetailIntro({ product }) {
 export default function ProductDetailPage({ product }) {
   const { locale } = useLocale();
   const localizedProduct = localizeProduct(product, locale);
-  const bentoRef = useRef(null);
   const { accent, specs, features } = localizedProduct;
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function initEffects() {
-      window.gsap = gsap;
-      await loadScript("/products-scroll-demo/magic-bento.js");
-      if (cancelled) return;
-
-      const grid = bentoRef.current;
-      if (!grid) return;
-
-      delete grid.dataset.magicBentoReady;
-      window.__productsMagicBentoCleanup?.();
-      window.__productsMagicBentoCleanup = window.initProductsMagicBento?.({
-        glowColor: accent.glowRgb,
-      }) || null;
-    }
-
-    initEffects().catch(console.error);
-
-    return () => {
-      cancelled = true;
-      window.__productsMagicBentoCleanup?.();
-      window.__productsMagicBentoCleanup = null;
-    };
-  }, [localizedProduct.slug, accent.glowRgb]);
 
   return (
     <main
@@ -298,7 +245,7 @@ export default function ProductDetailPage({ product }) {
                   <p className="product-spec__bag-name">{localizedProduct.title}</p>
                 </div>
 
-                <div className="product-spec__bento" ref={bentoRef}>
+                <div className="product-spec__bento">
                   <article className="spec-card spec-card--lg">
                     <span className="spec-card__metric">{specs.primary}</span>
                     <h3>{specs.primaryLabel}</h3>

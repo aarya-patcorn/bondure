@@ -16,7 +16,7 @@ const statsCopy = {
 };
 
 const statValues = [
-  { value: 759000, suffix: "+", illustration: "/home-media/test-performed.png", progress: 100 },
+  { value: 759000, suffix: "+", illustration: "/home-media/test-performed.webp", progress: 100 },
   { value: 1000, suffix: "+", illustration: "/home-media/stat-team.png", progress: 92 },
   { value: 30, suffix: "+", illustration: "/home-media/stat-innovation.png", progress: 72 },
   { value: 2, suffix: "", illustration: "/home-media/stat-continents.webp", progress: 36 },

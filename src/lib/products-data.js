@@ -33,6 +33,7 @@ function buildPatchAccent(hex) {
 }
 
 export const PRODUCT_PATCH_ACCENTS = {
+  aac: buildPatchAccent("#6F1522"),
   b555: buildPatchAccent("#6B3FA0"),
   b565: buildPatchAccent("#BE1E2D"),
   b585: buildPatchAccent("#1F4D47"),
@@ -45,6 +46,10 @@ export const PRODUCT_INTRO_ACCENT = PRODUCT_PATCH_ACCENTS.b555;
 export const PRODUCT_SPEC_ACCENT = PRODUCT_PATCH_ACCENTS.b555;
 
 export function getProductPatchId(product) {
+  if (product.slug === "bondure-aac-block-jointing-mortar") {
+    return "aac";
+  }
+
   if (product.slug === "bondure-wallstark-plaster") {
     return "wallstark";
   }

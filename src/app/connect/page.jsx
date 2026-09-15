@@ -5,6 +5,12 @@ import { useState } from "react";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
 
+import {
+  HeadsetIcon,
+  ChatCircleDotsIcon,
+  HandshakeIcon,
+} from "@phosphor-icons/react";
+
 import "./contact.css";
 
 const contactCopy = {
@@ -62,21 +68,21 @@ const supportChannels = [
   {
     id: "technical",
     titleKey: "contactSupportTechnicalTitle",
-    illustration: "/services/pillar-technical-call.webp",
+    illustration: HeadsetIcon,
     href: "mailto:tech@bondure.com",
     detail: "tech@bondure.com",
   },
   {
     id: "general",
     titleKey: "contactSupportGeneralTitle",
-    illustration: "/media/general-query.webp",
+    illustration: ChatCircleDotsIcon,
     href: "mailto:contactus@bondure.com",
     detail: "contactus@bondure.com",
   },
   {
     id: "sales",
     titleKey: "contactSupportSalesTitle",
-    illustration: "/media/contact-sales-illustration.webp",
+    illustration: HandshakeIcon,
     href: "tel:+912266668888",
   },
 ];
@@ -215,35 +221,35 @@ export default function ContactPage() {
             {supportChannels.map((channel) => (
               <article className="contact-support__card" key={channel.id} data-channel={channel.id}>
                 <div className="contact-support__illustration" data-channel={channel.id}>
-                  <img
-                    src={channel.illustration}
-                    alt={copy.illustration[channel.id]}
-                    loading="lazy"
-                    decoding="async"
+                  <channel.illustration
+                    size={72}
+                    weight="light"
+                    aria-label={copy.illustration[channel.id]}
                   />
                 </div>
 
-                <div className="contact-support__content">
-                  <h2>{t(channel.titleKey)}</h2>
-                  {channel.id === "sales" ? (
-                    <div className="contact-support__phones">
-                      <a href="tel:+496131666688">{t("contactSalesPhoneGermany")}</a>
-                      <a href="tel:+912266668888">{t("contactSalesPhoneIndia")}</a>
-                    </div>
-                  ) : (
-                    <a className="contact-support__link" href={channel.href}>
-                      {channel.detail}
-                    </a>
-                  )}
+                <div className="contact-support__info">
+                  <div className="contact-support__content">
+                    <h2>{t(channel.titleKey)}</h2>
+                    {channel.id === "sales" ? (
+                      <div className="contact-support__phones">
+                        <a href="tel:+496131666688">{t("contactSalesPhoneGermany")}</a>
+                        <a href="tel:+912266668888">{t("contactSalesPhoneIndia")}</a>
+                      </div>
+                    ) : (
+                      <a className="contact-support__link" href={channel.href}>
+                        {channel.detail}
+                      </a>
+                    )}
+                  </div>
+                  <a
+                    className="contact-support__action"
+                    href={channel.href}
+                    aria-label={`${t(channel.titleKey)} ${t("contactOpenLink")}`}
+                  >
+                    <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
-
-                <a
-                  className="contact-support__action"
-                  href={channel.href}
-                  aria-label={`${t(channel.titleKey)} ${t("contactOpenLink")}`}
-                >
-                  <span aria-hidden="true">↗</span>
-                </a>
               </article>
             ))}
           </section>

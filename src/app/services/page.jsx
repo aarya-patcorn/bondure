@@ -10,6 +10,7 @@ import PreflightRequest from "@/components/PreflightRequest/PreflightRequest";
 import Spotlight from "@/components/Spotlight/Spotlight";
 import ServiceImageTower from "@/components/ServiceImageTower/ServiceImageTower";
 import TelescopeSpotlight from "@/components/TelescopeSpotlight/TelescopeSpotlight";
+import { ClipboardTextIcon, HeadsetIcon, SealCheckIcon, GraduationCapIcon } from "@phosphor-icons/react";
 
 const copy = {
   en: {
@@ -109,46 +110,33 @@ const serviceBlogPosts = [
 function PillarIllustration({ type }) {
   if (type === "recommendation") {
     return (
-      <img
-        className="service-pillar-art"
-        src="/services/pillar-product-bag.webp"
-        alt=""
-        aria-hidden="true"
-      />
+      <div className="service-pillar-art" aria-hidden="true">
+        <ClipboardTextIcon size={72} weight="light" />
+      </div>
     );
   }
 
   if (type === "call") {
     return (
-      <img
-        className="service-pillar-art service-pillar-art--call"
-        src="/services/pillar-technical-call.webp"
-        alt=""
-        aria-hidden="true"
-        style={{ opacity: 0.9 }}
-      />
+      <div className="service-pillar-art" aria-hidden="true">
+        <HeadsetIcon size={72} weight="light" />
+      </div>
     );
   }
 
   if (type === "quality") {
     return (
-      <img
-        className="service-pillar-art service-pillar-art--quality"
-        src="/services/pillar-onsite-quality.webp"
-        alt=""
-        aria-hidden="true"
-      />
+      <div className="service-pillar-art" aria-hidden="true">
+        <SealCheckIcon size={72} weight="light" />
+      </div>
     );
   }
 
   if (type === "training") {
     return (
-      <img
-        className="service-pillar-art service-pillar-art--training"
-        src="/services/pillar-application-training.webp"
-        alt=""
-        aria-hidden="true"
-      />
+      <div className="service-pillar-art" aria-hidden="true">
+        <GraduationCapIcon size={72} weight="light" />
+      </div>
     );
   }
 

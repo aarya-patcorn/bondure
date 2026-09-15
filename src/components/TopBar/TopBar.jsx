@@ -12,6 +12,7 @@ import { PRODUCTS } from "@/lib/products-data";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import BondureLogo from "../BondureLogo/BondureLogo";
 import { useLocale } from "../LocaleProvider/LocaleProvider";
+import { ArrowRight } from "lucide-react";
 
 const NAV_ITEMS = [
   { key: "products", href: "/products" },
@@ -346,12 +347,13 @@ const TopBar = () => {
               {locale === "de" ? CATEGORY_LABELS_DE[category] || label : label}
             </button>
           ))}
+          <hr />
           <button
             type="button"
             className="products-mega-menu__view-all"
             onClick={() => navigateTo("/products")}
           >
-            {chromeText.viewAll}
+            {chromeText.viewAll} <ArrowRight />
           </button>
         </div>
 

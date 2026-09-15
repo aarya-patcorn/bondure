@@ -1,7 +1,7 @@
 .contact-page {
   --contact-card-bg: #fff;
-  --contact-support-card-min: 14rem;
-  --contact-support-card-max: 18.5rem;
+  --contact-support-card-min: 12rem;
+  --contact-support-card-max: 16rem;
   background: #f8f5ef;
   color: var(--base-100);
 }
@@ -178,10 +178,7 @@
     3 * var(--contact-support-card-max) + 2 * clamp(0.85rem, 1.5vw, 1.15rem)
   );
   margin-inline: auto;
-  grid-template-columns: repeat(
-    3,
-    minmax(var(--contact-support-card-min), var(--contact-support-card-max))
-  );
+  grid-template-columns: repeat(3, var(--contact-support-card-max));
   justify-content: center;
   gap: clamp(0.85rem, 1.5vw, 1.15rem);
   margin-top: clamp(1.35rem, 2.75vw, 2rem);
@@ -197,10 +194,10 @@
   min-width: var(--contact-support-card-min);
   max-width: var(--contact-support-card-max);
   justify-self: center;
-  aspect-ratio: 1 / 1.05;
+  aspect-ratio: auto;
   height: auto;
-  min-height: clamp(15rem, 24vw, 21rem);
-  padding: 0 0 clamp(1rem, 1.8vw, 1.35rem);
+  min-height: 0;
+  padding: clamp(0.9rem, 1.5vw, 1.15rem) 0 clamp(1rem, 1.8vw, 1.2rem);
   border: 0;
   border-right: 0;
   border-radius: 0.45rem;
@@ -211,10 +208,11 @@
 }
 
 .contact-support--in-hero .contact-support__illustration {
-  flex: 1 1 0;
+  flex: 0 0 clamp(4rem, 5vw, 4.75rem);
   width: 100%;
   min-height: 0;
-  padding: 5px 5px 0;
+  margin-bottom: clamp(0.55rem, 1vw, 0.75rem);
+  padding: 0 clamp(0.65rem, 1vw, 0.85rem);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -232,14 +230,20 @@
   object-position: center center;
 }
 
-.contact-support--in-hero .contact-support__content {
-  flex: 0 0 auto;
+.contact-support--in-hero .contact-support__info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2rem;
+  align-items: end;
+  gap: 0.75rem;
   padding-inline: clamp(1rem, 1.8vw, 1.35rem);
-  padding-right: 2.75rem;
+}
+
+.contact-support--in-hero .contact-support__content {
+  min-width: 0;
 }
 
 .contact-support--in-hero .contact-support__content h2 {
-  margin: clamp(0.65rem, 1.1vw, 0.85rem) 0 0.25rem;
+  margin: 0 0 0.25rem;
   font-size: clamp(0.95rem, 1.35vw, 1.15rem);
 }
 
@@ -250,9 +254,7 @@
 }
 
 .contact-support--in-hero .contact-support__action {
-  top: auto;
-  bottom: clamp(0.85rem, 1.5vw, 1rem);
-  right: clamp(0.85rem, 1.5vw, 1rem);
+  position: static;
   width: 2rem;
   height: 2rem;
   border: 0;
@@ -267,8 +269,8 @@
 
 .contact-support__card {
   position: relative;
-  min-height: 24rem;
-  padding: clamp(1.5rem, 3vw, 2.25rem);
+  min-height: 20rem;
+  padding: clamp(1.5rem, 1vw, 1.25rem);
   border-right: 1px solid rgba(35, 27, 28, 0.12);
 }
 
@@ -278,13 +280,18 @@
 
 .contact-support__illustration {
   width: min(100%, 14rem);
-  height: clamp(8rem, 12vw, 11rem);
+  height: clamp(5rem, 7vw, 9rem);
   margin-inline: auto;
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
+}
+
+contact-support__info{
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-support__content h2 {
@@ -487,10 +494,7 @@ html[data-theme="dark"] .contact-form__submit {
 
 @media (min-width: 901px) {
   .contact-support--in-hero {
-    grid-template-columns: repeat(
-      3,
-      minmax(var(--contact-support-card-min), var(--contact-support-card-max))
-    );
+    grid-template-columns: repeat(3, var(--contact-support-card-max));
     grid-auto-flow: row;
   }
 
@@ -519,8 +523,8 @@ html[data-theme="dark"] .contact-form__submit {
     width: min(100%, var(--contact-support-card-max));
     min-width: 0;
     max-width: var(--contact-support-card-max);
-    min-height: clamp(16rem, 62vw, 20rem);
-    aspect-ratio: 1 / 1.05;
+    min-height: 0;
+    aspect-ratio: auto;
     margin-inline: auto;
   }
 
