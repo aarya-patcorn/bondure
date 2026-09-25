@@ -16,6 +16,7 @@ const consentSessionKey = "bondure-consent-session";
 export default function CookieConsent() {
   const { locale, setLocale, t } = useLocale();
   const [isOpen, setIsOpen] = useState(true);
+  const [introDone, setIntroDone] = useState(false);
   const [step, setStep] = useState(1);
   const [country, setCountry] = useState("");
   const [preferences, setPreferences] = useState(defaultPreferences);
@@ -23,6 +24,17 @@ export default function CookieConsent() {
   useEffect(() => {
     const stored = window.sessionStorage.getItem(consentSessionKey);
     setIsOpen(!stored);
+  }, []);
+
+  // Wait for the intro reveal to finish before showing the consent card.
+  useEffect(() => {
+    if (window.__bondureIntroComplete) {
+      setIntroDone(true);
+      return undefined;
+    }
+    const onDone = () => setIntroDone(true);
+    window.addEventListener("bondure:intro-complete", onDone);
+    return () => window.removeEventListener("bondure:intro-complete", onDone);
   }, []);
 
   const saveConsent = (nextPreferences) => {
@@ -60,7 +72,7 @@ export default function CookieConsent() {
     setPreferences((current) => ({ ...current, [key]: !current[key] }));
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || !introDone) return null;
 
   const countryOptions = getCountryOptions(locale);
 

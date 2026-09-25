@@ -19,6 +19,15 @@ CustomEase.create("intro-hop", "0.87, 0, 0.13, 1");
 const WORD_EN = "Bondure";
 const WORD_DE = "Beoendeuere";
 
+// Broadcast once the intro is out of the way so other UI (e.g. the cookie
+// consent card) can wait for the reveal to finish before appearing.
+function markIntroDone() {
+  if (typeof window === "undefined") return;
+  if (window.__bondureIntroComplete) return;
+  window.__bondureIntroComplete = true;
+  window.dispatchEvent(new Event("bondure:intro-complete"));
+}
+
 export default function Intro() {
   const introRef = useRef(null);
   const flipRef = useRef(null);
@@ -33,6 +42,12 @@ export default function Intro() {
       setShowIntro(false);
     }
   }, []);
+
+  // Whenever the intro is not on screen (skipped, already played, or the
+  // reveal finished), signal completion so gated UI can appear.
+  useEffect(() => {
+    if (!showIntro) markIntroDone();
+  }, [showIntro]);
 
   // Lock scrolling while the intro plays.
   useEffect(() => {
