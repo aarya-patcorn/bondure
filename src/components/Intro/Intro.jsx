@@ -16,8 +16,8 @@ gsap.registerPlugin(CustomEase);
 CustomEase.create("intro-hop", "0.87, 0, 0.13, 1");
 
 // "Bondure" shown first in English, then flipped to German.
-const WORD_EN = "Bondure";
-const WORD_DE = "Beoendeuere";
+const WORD_EN = "BONDURE";
+const WORD_DE = "BEOENDEUERE";
 
 // Broadcast once the intro is out of the way so other UI (e.g. the cookie
 // consent card) can wait for the reveal to finish before appearing.
