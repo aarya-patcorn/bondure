@@ -6,6 +6,7 @@ import gsap from "gsap";
 
 import { useViewTransition } from "@/hooks/useViewTransition";
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
+import BlogSection from "@/components/BlogSection/BlogSection";
 import {
   aacBags,
   adhesiveBags,
@@ -876,28 +877,14 @@ export default function ToolsPage() {
       )}
 
       {!activeTool && (
-        <section className="tools-blog" aria-labelledby="tools-blog-title">
-          <div className="tools-blog__inner">
-            <div className="tools-blog__heading">
-              <h2 id="tools-blog-title">{toolsBlogCopy[locale].heading}</h2>
-              <p>{toolsBlogCopy[locale].description}</p>
-            </div>
-            <div className="tools-blog__grid">
-              {toolsBlogPosts.map((post) => (
-                <article className="tools-blog-card" key={post.slug}>
-                  <div className="tools-blog-card__image">
-                    <img src={post.image} alt="" loading="lazy" decoding="async" />
-                  </div>
-                  <div className="tools-blog-card__body">
-                    <h3>{post.title[locale]}</h3>
-                    <p>{post.description[locale]}</p>
-                    <a href={`/articles/${post.slug}`}>{locale === "de" ? "Weiterlesen" : "Read more"}</a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <BlogSection
+          className="tools-blog"
+          titleId="tools-blog-title"
+          heading={toolsBlogCopy[locale].heading}
+          description={toolsBlogCopy[locale].description}
+          posts={toolsBlogPosts}
+          locale={locale}
+        />
       )}
 
       {activeTool && activeTool !== "recommend" && (

@@ -91,7 +91,7 @@ const messages = {
     contactLocationFrankfurtTitle: "Bondure Office Frankfurt",
     contactLocationFrankfurtSubtitle: "Office, Germany",
     contactGetDirections: "Get directions",
-    articleBackToServices: "Back to services",
+    articleBack: "Back",
   },
   de: {
     language: "Sprache",
@@ -179,7 +179,7 @@ const messages = {
     contactLocationFrankfurtTitle: "Bondure Büro Frankfurt",
     contactLocationFrankfurtSubtitle: "Büro, Deutschland",
     contactGetDirections: "Route anzeigen",
-    articleBackToServices: "Zurück zu den Services",
+    articleBack: "Zurück",
   },
 };
 

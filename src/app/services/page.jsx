@@ -86,9 +86,9 @@ const serviceBlogPosts = [
   },
   {
     slug: "mobile-testing-lab",
-    image: "/blog/van_lab.jpeg",
+    image: "/blog/van_lab.webp",
     title: {
-      en: "What a Mobile Testing Lab",
+      en: "Mobile Testing Lab",
       de: "Was ein mobiles Prüflabor",
     },
     description: {

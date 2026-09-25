@@ -270,6 +270,133 @@ color: var(--products-muted);
   color: var(--products-muted);
 }
 
+/* Filter button + shadcn-style filter dialog.
+   This only re-homes the existing filters into a popup — the filter
+   application logic (checkboxes, clear, counts) is unchanged. */
+
+/* Filters now live in a dialog, so the catalog is a single column. */
+.products-page .product-catalog {
+  grid-template-columns: 1fr;
+}
+
+/* shadcn "new-york" outline button */
+.products-page .product-catalog__filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--products-line);
+  border-radius: 0.5rem;
+  background: var(--products-surface);
+  color: var(--products-ink);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.products-page .product-catalog__filter-toggle:hover {
+  background: var(--products-bg);
+  border-color: var(--products-ink);
+}
+
+.products-page .product-catalog__filter-toggle:focus-visible {
+  outline: 2px solid var(--products-teal);
+  outline-offset: 2px;
+}
+
+.products-page .product-catalog__filter-toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Dialog overlay */
+.products-page .product-catalog__filters-backdrop[hidden] {
+  display: none;
+}
+
+.products-page .product-catalog__filters-backdrop:not([hidden]) {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(6, 10, 11, 0.6);
+  backdrop-filter: blur(2px);
+  animation: products-filter-fade 0.15s ease;
+}
+
+/* Dialog surface (centered modal, shadcn new-york) */
+.products-page .product-catalog__filters {
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  width: min(92vw, 26rem);
+  max-height: 85svh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--products-line);
+  border-radius: 0.75rem;
+  background: var(--products-surface);
+  box-shadow: 0 1.5rem 3.5rem rgba(18, 24, 26, 0.28);
+  transform: translate(-50%, -48%) scale(0.98);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.18s ease, opacity 0.18s ease, visibility 0.18s ease;
+}
+
+.products-page .product-catalog.is-filters-open .product-catalog__filters {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.products-page .product-catalog__filters-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--products-line);
+  font-size: 1.1rem;
+  font-weight: 650;
+  color: var(--products-ink);
+}
+
+.products-page .product-catalog__filters-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--products-muted);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.products-page .product-catalog__filters-close:hover {
+  background: var(--products-bg);
+  color: var(--products-ink);
+}
+
+.products-page .product-catalog__filters-close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+@keyframes products-filter-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Apple-style product cards (centered, airy, rounded media) */
 .products-page .product-catalog__grid {
   display: grid;

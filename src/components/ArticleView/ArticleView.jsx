@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { useLocale } from "../LocaleProvider/LocaleProvider";
 
@@ -8,14 +9,25 @@ import "./ArticleView.css";
 
 export default function ArticleView({ article, backHref = "/services", backLabel }) {
   const { locale, t } = useLocale();
+  const router = useRouter();
   const localize = (value) => (typeof value === "object" && value !== null ? value[locale] || value.en : value);
-  const localizedBackLabel = backLabel ? localize(backLabel) : t("articleBackToServices");
+  const localizedBackLabel = backLabel ? localize(backLabel) : t("articleBack");
+
+  const handleBack = () => {
+    // Return to the previously open page when there is history to go back to,
+    // otherwise fall back to a sensible default route.
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push(backHref);
+    }
+  };
 
   return (
     <article className="article-view" lang={locale}>
       <header className="article-view__hero">
         <div className="article-view__hero-copy">
-          <Link className="article-view__back" href={backHref}>← {localizedBackLabel}</Link>
+          <button type="button" className="article-view__back" onClick={handleBack}>← {localizedBackLabel}</button>
           <div className="article-view__hero-text">
             <h1>{localize(article.title)}</h1>
             <p className="article-view__summary">{localize(article.summary)}</p>

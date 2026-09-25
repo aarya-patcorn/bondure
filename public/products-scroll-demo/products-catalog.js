@@ -25,6 +25,7 @@
     "Bondure tile cleaner product": "Bondure Fliesenreiniger",
     Products: "Produkte",
     "Product filters": "Produktfilter",
+    Filters: "Filter",
     "Product sub category": "Produktunterkategorie",
     Clear: "Zurücksetzen",
     "Tile adhesives": "Fliesenkleber",
@@ -335,6 +336,31 @@
       });
       applyFilters();
     };
+
+    // Filter dialog toggle — UI only, does not change filter application behaviour.
+    const filterToggles = [...catalog.querySelectorAll("[data-filter-toggle]")];
+    const filterBackdrop = catalog.querySelector("[data-filter-backdrop]");
+    const filterClose = filters.querySelector("[data-filter-close]");
+
+    const setFiltersOpen = (open) => {
+      catalog.classList.toggle("is-filters-open", open);
+      filterToggles.forEach((toggle) =>
+        toggle.setAttribute("aria-expanded", open ? "true" : "false"),
+      );
+      if (filterBackdrop) filterBackdrop.hidden = !open;
+      document.body.classList.toggle("products-filters-open", open);
+    };
+
+    filterToggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        setFiltersOpen(!catalog.classList.contains("is-filters-open"));
+      });
+    });
+    filterClose?.addEventListener("click", () => setFiltersOpen(false));
+    filterBackdrop?.addEventListener("click", () => setFiltersOpen(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setFiltersOpen(false);
+    });
 
     applyFilters();
     updateFilterCounts();

@@ -347,13 +347,13 @@
 }
 
 .service-blog {
-  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(4rem, 8vw, 7rem) 2rem;
   border-top: 1px solid var(--base-450);
   background: var(--base-500);
 }
 
 .service-blog__inner {
-  max-width: 78rem;
+  max-width: 2000px;
   margin: 0 auto;
 }
 

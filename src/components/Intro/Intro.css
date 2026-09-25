@@ -1,0 +1,97 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: all;
+}
+
+/* Two halves that together cover the screen in the brand colour. */
+.intro__panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(50% + 1px); /* tiny overlap avoids a centre seam */
+  background: #5a1e1e;
+  will-change: transform;
+}
+
+.intro__panel--a {
+  top: 0;
+}
+
+.intro__panel--b {
+  bottom: 0;
+}
+
+.intro__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  pointer-events: none;
+}
+
+/* 3D flip wrapper for the English -> German title swap. */
+.intro__flip {
+  perspective: 1400px;
+}
+
+.intro__flip-inner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.intro__word {
+  grid-area: 1 / 1;
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-crimson-pro), serif;
+  font-size: clamp(3rem, 12vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  backface-visibility: hidden;
+}
+
+.intro__word--back {
+  transform: rotateX(180deg);
+}
+
+@media (max-width: 768px) {
+  /* Mobile: split into left / right halves for a horizontal opening. */
+  .intro__panel {
+    top: 0;
+    width: calc(50% + 1px);
+    height: 100%;
+  }
+
+  .intro__panel--a {
+    left: 0;
+  }
+
+  .intro__panel--b {
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}
+
+body.intro-active {
+  overflow: hidden;
+}

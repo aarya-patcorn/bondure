@@ -11,6 +11,7 @@ import HomeStaticSections from "@/components/Home/HomeStaticSections";
 import RDHero from "@/components/RDHero/RDHero";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
+import BlogSection from "@/components/BlogSection/BlogSection";
 import Copy from "@/components/Copy/Copy";
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
 
@@ -364,28 +365,14 @@ export default function RDPage() {
           </div>
         </section>
 
-        <section className="rd-blog" aria-labelledby="rd-blog-title">
-          <div className="container">
-            <div className="rd-blog-heading">
-              <h2 id="rd-blog-title">{content.blogHeading}</h2>
-              <p>{content.blogDescription}</p>
-            </div>
-            <div className="rd-blog-grid">
-              {blogPosts.map((post) => (
-                <article className="rd-blog-card" key={post.slug}>
-                  <div className="rd-blog-card__image">
-                    <img src={post.image} alt="" loading="lazy" decoding="async" />
-                  </div>
-                  <div className="rd-blog-card__body">
-                    <h3>{post.title[locale]}</h3>
-                    <p>{post.description[locale]}</p>
-                    <a href={`/articles/${post.slug}`}>{locale === "de" ? "Weiterlesen" : "Read more"}</a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <BlogSection
+          className="rd-blog"
+          titleId="rd-blog-title"
+          heading={content.blogHeading}
+          description={content.blogDescription}
+          posts={blogPosts}
+          locale={locale}
+        />
 
         <CTAWindow
           img="/media/rd-closing-mortar-application.png"

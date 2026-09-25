@@ -183,10 +183,24 @@
       <div>
         <h2 id="product-catalog-heading" data-i18n="products.catalog.heading">Products</h2>
       </div>
+      <button type="button" class="product-catalog__filter-toggle" data-filter-toggle aria-expanded="false"
+        aria-controls="product-catalog-filters">
+        <svg class="product-catalog__filter-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 5h18M6 12h12M10 19h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span>Filters</span>
+      </button>
     </header>
 
     <div class="product-catalog">
-      <aside class="product-catalog__filters" aria-label="Product filters">
+      <div class="product-catalog__filters-backdrop" data-filter-backdrop hidden></div>
+      <aside class="product-catalog__filters" id="product-catalog-filters" aria-label="Product filters">
+        <div class="product-catalog__filters-head">
+          <span>Filters</span>
+          <button type="button" class="product-catalog__filters-close" data-filter-close aria-label="Close filters">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          </button>
+        </div>
         <sl-details open data-filter-group="category">
           <span slot="summary" data-i18n="products.catalog.filter.category">Product sub category</span>
           <div class="product-filter__clear-row">

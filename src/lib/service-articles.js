@@ -129,7 +129,7 @@ export const serviceArticles = {
       en: "A data sheet sets the baseline. On-site evidence shows how a system performs for your project.",
       de: "Ein Datenblatt legt die Ausgangsbasis fest. Der Nachweis vor Ort zeigt, wie ein System bei Ihrem Projekt tatsächlich funktioniert.",
     },
-    image: "/blog/van_lab.jpeg",
+    image: "/blog/van_lab.webp",
     imageAlt: {
       en: "Bondure mobile testing laboratory van",
       de: "Bondure mobiles Prüflabor-Fahrzeug",
@@ -875,7 +875,7 @@ export const rdArticles = {
       en: "A performance figure is only the visible summary of the many conditions tested behind it.",
       de: "Ein Leistungswert ist nur die sichtbare Zusammenfassung der vielen dahinter geprüften Bedingungen.",
     },
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=85",
+    image: "/blog/inside-759000-tests.webp",
     imageAlt: {
       en: "Laboratory testing equipment",
       de: "Laborprüfausstattung",
@@ -1002,7 +1002,7 @@ export const rdArticles = {
       en: "Classification codes are compressed performance specifications — and reading them correctly prevents mismatches on site.",
       de: "Klassifizierungscodes sind verdichtete Leistungsangaben — und sie richtig zu lesen verhindert Fehlpassungen auf der Baustelle.",
     },
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85",
+    image: "/blog/adhesive-classification-standards.webp",
     imageAlt: {
       en: "Construction material testing on site",
       de: "Prüfung von Baumaterial auf der Baustelle",
@@ -1138,7 +1138,7 @@ export const rdArticles = {
       en: "The most useful sustainability claim is one supported by specific, current, verifiable data.",
       de: "Die nützlichste Nachhaltigkeitsangabe ist eine, die durch spezifische, aktuelle und überprüfbare Daten belegt ist.",
     },
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85",
+    image: "/blog/sustainability-construction-chemicals.webp",
     imageAlt: {
       en: "Sustainable modern office and building environment",
       de: "Nachhaltiges modernes Büro- und Gebäudeumfeld",

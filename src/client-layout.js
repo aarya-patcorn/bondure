@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LocaleProvider } from "@/components/LocaleProvider/LocaleProvider";
 import CookieConsent from "@/components/CookieConsent/CookieConsent";
 import PageTransition from "@/components/PageTransition/PageTransition";
+import Intro from "@/components/Intro/Intro";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,6 +55,7 @@ export default function ClientLayout({ children, siteChrome }) {
           {siteChrome}
           <ReactLenis root options={scrollSettings}>
              <ScrollTriggerSync />
+             <Intro />
              <PageTransition />
              {children}
              <CookieConsent />

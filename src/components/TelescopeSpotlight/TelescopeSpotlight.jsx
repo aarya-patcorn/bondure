@@ -154,6 +154,7 @@ export default function TelescopeSpotlight() {
       const positionMobileTitles = (progress) => {
         const { startY, endY } = getTitleTrackBounds();
         gsap.set(titleTrack, { y: gsap.utils.interpolate(startY, endY, progress) });
+        gsap.set(backgroundImage, { scale: gsap.utils.interpolate(1.15, 1, progress) });
         syncActiveTitle();
       };
 

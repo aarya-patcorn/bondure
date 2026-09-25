@@ -202,10 +202,6 @@
     transform: scale(1);
   }
 
-  .telescope-spotlight-bg img {
-    transform: scale(1);
-  }
-
   .telescope-spotlight-shade {
     background: linear-gradient(
       180deg,

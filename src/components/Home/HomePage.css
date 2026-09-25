@@ -187,7 +187,7 @@
 }
 
 .home-stats {
-  padding: clamp(1rem, 1vw, 4.5rem) clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1rem, 1vw, 4.5rem) clamp(0.25rem, 2vw, 2rem);
   background: #e7e7e7;
 }
 
@@ -207,7 +207,7 @@
   --home-stat-card-padding: clamp(0.15rem, 0.8vw, 0.5rem);
   position: relative;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
+  grid-template-rows: minmax(0, 2fr) 1fr 1fr;
   row-gap: clamp(.35rem, .8vw, .7rem);
   align-items: end;
   width: 100%;
@@ -861,7 +861,7 @@ html[data-theme="dark"] .home-standards__title {
   }
 
   .home-stats__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(0.65rem, 2.5vw, 1rem);
   }
 

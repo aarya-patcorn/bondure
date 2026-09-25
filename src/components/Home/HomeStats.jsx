@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/LocaleProvider/LocaleProvider";
 import "./HomePage.css";
+import { ChartLineUpIcon, GlobeHemisphereEastIcon, MicroscopeIcon, UsersThreeIcon } from "@phosphor-icons/react";
 
 const statsCopy = {
   en: {
@@ -16,10 +17,10 @@ const statsCopy = {
 };
 
 const statValues = [
-  { value: 759000, suffix: "+", illustration: "/home-media/test-performed.webp", progress: 100 },
-  { value: 1000, suffix: "+", illustration: "/home-media/stat-team.png", progress: 92 },
-  { value: 30, suffix: "+", illustration: "/home-media/stat-innovation.png", progress: 72 },
-  { value: 2, suffix: "", illustration: "/home-media/stat-continents.webp", progress: 36 },
+  { value: 759000, suffix: "+", illustration: <MicroscopeIcon size={52}/>, progress: 100 },
+  { value: 1000, suffix: "+", illustration: <UsersThreeIcon size={52} />, progress: 92 },
+  { value: 30, suffix: "+", illustration: <ChartLineUpIcon size={52} />, progress: 72 },
+  { value: 2, suffix: "", illustration: <GlobeHemisphereEastIcon size={52} />, progress: 36 },
 ];
 
 function AnimatedStatCard({ stat, label }) {
@@ -71,7 +72,7 @@ function AnimatedStatCard({ stat, label }) {
       style={{ "--home-stat-progress": `${isVisible ? stat.progress : 0}%` }}
     >
       <div className="home-stat-card__visual">
-        <img src={stat.illustration} alt="" loading="lazy" decoding="async" />
+        {stat.illustration}
       </div>
 
       <div className="home-stat-card__content">
