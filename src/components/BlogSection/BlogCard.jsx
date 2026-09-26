@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function BlogCard({ post, locale, readMoreLabel }) {
   const localize = (value) =>
     typeof value === "object" && value !== null ? value[locale] || value.en : value;
@@ -12,7 +10,7 @@ export default function BlogCard({ post, locale, readMoreLabel }) {
       <div className="blog-card__body">
         <h3>{localize(post.title)}</h3>
         <p>{localize(post.description)}</p>
-        <Link href={`/articles/${post.slug}`}>{readMoreLabel}</Link>
+        <a href={`/articles/${post.slug}`}>{readMoreLabel}</a>
       </div>
     </article>
   );

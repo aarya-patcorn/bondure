@@ -254,7 +254,7 @@ export const serviceArticles = {
       en: "A structured audit separates a product issue from the substrate and application conditions that may be causing it.",
       de: "Ein strukturiertes Audit trennt ein Produktproblem von den Untergrund- und Verarbeitungsbedingungen, die es verursachen können.",
     },
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85",
+    image: "/blog/diagnosis_a_recurring.webp",
     imageAlt: {
       en: "Construction site quality inspection",
       de: "Qualitätsprüfung auf der Baustelle",
@@ -727,7 +727,7 @@ export const toolArticles = {
       en: "Zone-specific quantities and phased deliveries turn estimation into a practical schedule safeguard.",
       de: "Zonenspezifische Mengen und phasenweise Lieferungen machen die Mengenermittlung zu einer praktischen Absicherung des Zeitplans.",
     },
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=85",
+    image: "/blog/high-rise-material-estimation.webp",
     imageAlt: {
       en: "High-rise construction project team",
       de: "Projektteam eines Hochhausbaus",

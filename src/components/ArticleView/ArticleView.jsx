@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import { requestPageTransition } from "../PageTransition/PageTransition";
 import { useLocale } from "../LocaleProvider/LocaleProvider";
 
 import "./ArticleView.css";
@@ -16,11 +16,17 @@ export default function ArticleView({ article, backHref = "/services", backLabel
   const handleBack = () => {
     // Return to the previously open page when there is history to go back to,
     // otherwise fall back to a sensible default route.
-    if (typeof window !== "undefined" && window.history.length > 1) {
-      router.back();
-    } else {
-      router.push(backHref);
-    }
+    const navigate = () => {
+      if (typeof window !== "undefined" && window.history.length > 1) {
+        router.back();
+      } else {
+        router.push(backHref);
+      }
+    };
+    // Play the same block-wipe transition as the "Read more" open animation.
+    // backHref is used only as a non-matching sentinel so the guard passes;
+    // the actual navigation is performed by the callback (router.back()).
+    requestPageTransition(backHref, navigate);
   };
 
   return (
@@ -58,7 +64,7 @@ export default function ArticleView({ article, backHref = "/services", backLabel
 
         {article.action && (
           <div className="article-view__action">
-            <Link href={article.action.href}>{localize(article.action.label)} <span aria-hidden="true">→</span></Link>
+            <a href={article.action.href}>{localize(article.action.label)} <span aria-hidden="true">→</span></a>
           </div>
         )}
       </div>

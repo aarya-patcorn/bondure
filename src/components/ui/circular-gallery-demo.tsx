@@ -13,14 +13,14 @@ const projectSlides: Record<"en" | "de", CoverflowSlide[]> = {
         "High-performance tile, stone and façade systems engineered for demanding high-rise construction conditions.",
     },
     {
-      src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop&q=80",
+      src: "/home-media/modern-office-interior.webp",
       alt: "Modern open-plan office interior with natural light",
       title: "Infrastructure",
       description:
         "Durable repair mortars, grouts and protective coatings for high-traffic infrastructure and exposed structures.",
     },
     {
-      src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&auto=format&fit=crop&q=80",
+      src: "/home-media/contemporary-hospital-interior.webp",
       alt: "Bright contemporary hospital interior",
       title: "Healthcare",
       description:
@@ -41,7 +41,7 @@ const projectSlides: Record<"en" | "de", CoverflowSlide[]> = {
         "Fast-track flooring and wall systems for shops, malls and dining spaces where appearance, slip resistance and programme speed are critical.",
     },
     {
-      src: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&auto=format&fit=crop&q=80",
+      src: "/home-media/clean-tiled-swimming-pool.webp",
       alt: "Clean tiled swimming pool with crystal-clear blue water",
       title: "Marine",
       description:
@@ -57,14 +57,14 @@ const projectSlides: Record<"en" | "de", CoverflowSlide[]> = {
         "Hochleistungs-Fliesen-, Naturstein- und Fassadensysteme für anspruchsvolle Hochhausbau-Bedingungen.",
     },
     {
-      src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop&q=80",
+      src: "/home-media/modern-office-interior.webp",
       alt: "Moderner Open-Space-Bürobereich mit Tageslicht",
       title: "Infrastruktur",
       description:
         "Langlebige Reparaturmörtel, Vergussmassen und Schutzbeschichtungen für stark beanspruchte Infrastruktur und exponierte Bauwerke.",
     },
     {
-      src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&auto=format&fit=crop&q=80",
+      src: "/home-media/contemporary-hospital-interior.webp",
       alt: "Heller moderner Krankenhausinnenraum",
       title: "Gesundheitswesen",
       description:
@@ -85,7 +85,7 @@ const projectSlides: Record<"en" | "de", CoverflowSlide[]> = {
         "Schnell ausführbare Boden- und Wandsysteme für Geschäfte, Einkaufszentren und Gastronomiebereiche, in denen Optik, Rutschhemmung und Baugeschwindigkeit entscheidend sind.",
     },
     {
-      src: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&auto=format&fit=crop&q=80",
+      src: "/home-media/clean-tiled-swimming-pool.webp",
       alt: "Sauberer gefliester Swimmingpool mit klarem blauem Wasser",
       title: "Maritimbereich",
       description:

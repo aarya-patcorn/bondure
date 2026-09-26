@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `try{const t=localStorage.getItem("bondure-theme")||"light";const l=localStorage.getItem("bondure-language")==="de"?"de":"en";const c=localStorage.getItem("bondure-consent")||document.cookie.includes("bondure_consent=yes");document.documentElement.dataset.theme=t;document.documentElement.dataset.consent=c?"saved":"pending";document.documentElement.style.colorScheme=t;document.documentElement.lang=l}catch(e){}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `try{const t=localStorage.getItem("bondure-theme")||"light";const l=localStorage.getItem("bondure-language")==="de"?"de":"en";const c=localStorage.getItem("bondure-consent")||document.cookie.includes("bondure_consent=yes");document.documentElement.dataset.theme=t;document.documentElement.dataset.consent=c?"saved":"pending";document.documentElement.style.colorScheme=t;document.documentElement.lang=l;if(sessionStorage.getItem("bondure:intro-played")==="1"){document.documentElement.dataset.introPlayed="1"}}catch(e){}` }} />
       </head>
       <body>
         <WebVitals />

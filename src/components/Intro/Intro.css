@@ -9,6 +9,12 @@
   pointer-events: all;
 }
 
+/* Intro already played in this tab: hide the server-rendered overlay before
+   hydration so a reload never flashes it (set by the inline script in <head>). */
+html[data-intro-played="1"] .intro {
+  display: none;
+}
+
 /* Two halves that together cover the screen in the brand colour. */
 .intro__panel {
   position: absolute;

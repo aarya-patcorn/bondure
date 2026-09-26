@@ -40,6 +40,7 @@
     "10 Year": "10 Jahre",
     Lifetime: "Lebenslang",
     Country: "Land",
+    "Apply filters": "Filter anwenden",
     India: "Indien",
     "Export markets": "Exportmärkte",
     "For AAC Blocks": "Für Porenbetonsteine",
@@ -338,7 +339,8 @@
     };
 
     // Filter dialog toggle — UI only, does not change filter application behaviour.
-    const filterToggles = [...catalog.querySelectorAll("[data-filter-toggle]")];
+    const filterScope = catalog.closest(".product-catalog-section") || document;
+    const filterToggles = [...filterScope.querySelectorAll("[data-filter-toggle]")];
     const filterBackdrop = catalog.querySelector("[data-filter-backdrop]");
     const filterClose = filters.querySelector("[data-filter-close]");
 
@@ -358,6 +360,11 @@
     });
     filterClose?.addEventListener("click", () => setFiltersOpen(false));
     filterBackdrop?.addEventListener("click", () => setFiltersOpen(false));
+    const filterApply = filters.querySelector("[data-filter-apply]");
+    filterApply?.addEventListener("click", () => {
+      applyFilters();
+      setFiltersOpen(false);
+    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setFiltersOpen(false);
     });
